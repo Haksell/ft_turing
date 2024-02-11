@@ -19,6 +19,23 @@
 -   [ ] Delete Makefile
 -   [ ] Test machine loop
 -   [ ] Test machine too far
+-   [ ] Test alias.json -> /dev/random
+
+### Mandatory machines
+
+-   [x] unary_add.json
+-   [ ] palindrome.json
+-   [ ] 0ton1ton.json
+-   [ ] 0to2n.json
+-   [ ] inception.json
+
+### Bonus machines
+
+-   [ ] unary_mul.json
+-   [ ] binary_not.json
+-   [ ] binary_and.json
+-   [ ] binary_or.json
+-   [ ] binary_xor.json
 
 ### Learning
 
