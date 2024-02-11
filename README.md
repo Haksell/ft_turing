@@ -3,7 +3,7 @@
 -   [x] Parse arguments
 -   [x] Parse JSON file
 -   [ ] Check valid keys
--   [ ] Check valid `name`
+-   [ ] Check valid `name` (same as file maybe?)
 -   [ ] Check valid `alphabet`
 -   [ ] Check valid `blank`
 -   [ ] Check valid `states`
