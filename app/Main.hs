@@ -1,11 +1,10 @@
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+import Data.ByteString.Lazy qualified as BL
 import Data.List (isSuffixOf)
 import Machine (parseMachine, validateMachine)
 import System.Environment (getArgs, getProgName)
-
-import Data.ByteString.Lazy qualified as BL
 
 main :: IO ()
 main = do
