@@ -17,6 +17,8 @@
 -   [ ] Check input string
 -   [x] .cabal file
 -   [ ] Delete Makefile
+-   [ ] Test machine loop
+-   [ ] Test machine too far
 
 ### Learning
 
