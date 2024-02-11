@@ -23,7 +23,8 @@
 -   [ ] `parseJson` returns a `Result` instead of calling both `parseJson` and `checkJson` in `ftTuring`
 -   [ ] Check JSON file has right format
 -   [ ] Check input string
--   [ ] .cabal file
+-   [x] .cabal file
+-   [ ] Delete Makefile
 
 ### Learning
 
