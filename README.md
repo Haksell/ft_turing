@@ -38,6 +38,7 @@
 -   [ ] binary_and.json
 -   [ ] binary_or.json
 -   [ ] binary_xor.json
+-   [ ] binary_add.json
 
 ### Learning
 
