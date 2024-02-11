@@ -26,8 +26,8 @@
 ### Mandatory machines
 
 -   [x] unary_add.json
--   [x] palindrome.json (TODO: left0, right0, left1, right1)
--   [ ] 0ton1ton.json
+-   [x] palindrome.json
+-   [x] 0ton1ton.json
 -   [ ] 0to2n.json
 -   [ ] inception.json
 
