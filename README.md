@@ -20,6 +20,8 @@
 -   [ ] Test machine loop
 -   [ ] Test machine too far
 -   [ ] Test alias.json -> /dev/random
+-   [ ] Machine tester
+-   [ ] Understanding bonus
 
 ### Mandatory machines
 
