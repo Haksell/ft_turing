@@ -1,3 +1,7 @@
+ft_turing
+*.hi
+*.o
 .idea
 .vscode
 dist-newstyle
+.ghc.environment*
