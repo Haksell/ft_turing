@@ -6,3 +6,4 @@ ft_turing
 dist-newstyle
 .ghc.environment*
 .cabal-fmt*
+cabal.project.freeze

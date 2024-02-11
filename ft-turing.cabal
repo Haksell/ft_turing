@@ -1,11 +1,9 @@
-cabal-version:   3.0
-name:            ft-turing
-version:         1
-license:         Apache-2.0
-author:          amyroshn and axbrisse
-maintainer:      amyroshn@student.42.fr and axbrisse@student.42.fr
-build-type:      Simple
-extra-doc-files: CHANGELOG.md
+cabal-version: 3.0
+name:          ft-turing
+version:       1
+author:        amyroshn and axbrisse
+maintainer:    amyroshn@student.42.fr and axbrisse@student.42.fr
+build-type:    Simple
 
 common warnings
   ghc-options: -Wall
@@ -19,7 +17,7 @@ executable ft_turing
   build-depends:
     , aeson
     , aeson-pretty
-    , base                  >=4.7 && <5
+    , base
     , bytestring
     , containers
     , text
