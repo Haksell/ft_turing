@@ -1,11 +1,3 @@
-### Commands
-
-`make install`
-
-`make build > /dev/null && ./ft_turing files/valid/unary_sub.json input`
-
-`make build > /dev/null; for file in files/**/*.json(N); do printf "%-38s" "$file"; ./ft_turing "$file" input; done`
-
 ### TODO
 
 -   [x] Parse arguments

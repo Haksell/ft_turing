@@ -15,10 +15,10 @@ main = do
         then do
           jsonFileContents <- BL.readFile jsonFilePath
           case parseMachine jsonFileContents of
-            Left err -> putStrLn $ "Error parsing JSON: " ++ err
+            Left parsingError -> putStrLn $ "Error parsing JSON: " ++ parsingError
             Right machine ->
               case validateMachine machine of
-                Left verr -> putStrLn $ "Validation error: " ++ verr
+                Left validationError -> putStrLn $ "Validation error: " ++ validationError
                 Right validMachine -> print validMachine
         else putStrLn "Error: the file path must end with '.json'."
     _ -> do
