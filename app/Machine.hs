@@ -2,10 +2,10 @@
 
 module Machine where
 
-import Data.Aeson
+import Data.Aeson (FromJSON, eitherDecode)
 import qualified Data.ByteString.Lazy as B
 import qualified Data.Map as Map
-import GHC.Generics
+import GHC.Generics (Generic)
 
 type Transitions = Map.Map String [Transition]
 
@@ -37,6 +37,6 @@ parseMachine = eitherDecode
 
 validateMachine :: Machine -> Either String Machine
 validateMachine machine
-  | not (initial machine `elem` states machine) = Left "Initial state is not in the list of states."
+  | initial machine `notElem` states machine = Left "Initial state is not in the list of states."
   | not (all (`elem` states machine) (finals machine)) = Left "Not all final states are in the list of states."
   | otherwise = Right machine
