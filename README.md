@@ -28,7 +28,7 @@
 -   [x] unary_add.json
 -   [x] palindrome.json
 -   [x] 0ton1ton.json
--   [ ] 0to2n.json
+-   [x] 0to2n.json
 -   [ ] inception.json
 
 ### Bonus machines
