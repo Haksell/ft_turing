@@ -3,14 +3,28 @@
 
 import Data.ByteString.Lazy qualified as BL
 import Data.List (isSuffixOf)
-import Machine (parseMachine, validateMachine)
+import Machine (Machine (alphabet, blank), parseMachine, printMachine, validateMachine)
 import System.Environment (getArgs, getProgName)
+
+isValidInput :: [String] -> String -> String -> Either String ()
+isValidInput machineAlphabet machineBlank input
+  | null input = Left "Input is empty"
+  | machineBlank `elem` inputSymbols = Left "Input contains the blank symbol"
+  | not (all (`elem` machineAlphabet) inputSymbols) = Left "Input contains symbols not in alphabet"
+  | otherwise = Right ()
+ where
+  inputSymbols = map (: []) input
+
+doJob :: Machine -> String -> IO ()
+doJob machine input = do
+  print input
+  putStrLn $ printMachine machine
 
 main :: IO ()
 main = do
   args <- getArgs
   case args of
-    [jsonFilePath, _input] ->
+    [jsonFilePath, input] ->
       if ".json" `isSuffixOf` jsonFilePath
         then do
           jsonFileContents <- BL.readFile jsonFilePath
@@ -19,7 +33,10 @@ main = do
             Right machine ->
               case validateMachine machine of
                 Left validationError -> putStrLn $ "Validation error: " ++ validationError
-                Right validMachine -> print validMachine
+                Right validMachine ->
+                  case isValidInput (alphabet validMachine) (blank validMachine) input of
+                    Left err -> putStrLn $ "Error: " ++ err
+                    Right _ -> doJob validMachine input
         else putStrLn "Error: the file path must end with '.json'."
     _ -> do
       progName <- getProgName

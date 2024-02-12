@@ -9,10 +9,41 @@ import Data.Aeson (
 import Data.Aeson.Types (FromJSON (parseJSON), Options, genericParseJSON, rejectUnknownFields)
 import qualified Data.ByteString.Lazy as B
 import Data.Either
-import Data.List (nub)
+import Data.List (intercalate, nub)
 import qualified Data.Map as Map
 import GHC.Generics (Generic)
 import Prelude hiding (read)
+
+printMachine :: Machine -> String
+printMachine machine =
+    unlines
+        [ "name: " ++ name machine
+        , "Alphabet: [" ++ intercalate ", " (alphabet machine) ++ "]"
+        , "States: [" ++ intercalate ", " (states machine) ++ "]"
+        , "Initial: " ++ initial machine
+        , "Finals: [" ++ intercalate ", " (finals machine) ++ "]"
+        , printTransitions (transitions machine)
+        ]
+
+printTransitions :: Transitions -> String
+printTransitions t = unlines $ concatMap printStateTransitions (Map.toList t)
+
+printStateTransitions :: (String, [Transition]) -> [String]
+printStateTransitions (state, ts) = map (printTransition state) ts
+
+printTransition :: String -> Transition -> String
+printTransition state transition =
+    "("
+        ++ state
+        ++ ", "
+        ++ read transition
+        ++ ") -> ("
+        ++ to_state transition
+        ++ ", "
+        ++ write transition
+        ++ ", "
+        ++ action transition
+        ++ ")"
 
 type Transitions = Map.Map String [Transition]
 
@@ -88,7 +119,7 @@ areTransitionsValid machineTransitions machine =
                 else lefts $ map (`isValidTransition` machine) ts
 
     validateFinalStatesCoverage :: Transitions -> [String] -> [String]
-    validateFinalStatesCoverage transitions finalStates =
-        let toStates = concatMap (map to_state . snd) (Map.toList transitions) -- Extract all 'to_state' values from transitions
-            missingFinals = filter (`notElem` toStates) finalStates -- Find final states not present in 'toStates'
+    validateFinalStatesCoverage mt finalStates =
+        let toStates = concatMap (map to_state . snd) (Map.toList mt)
+            missingFinals = filter (`notElem` toStates) finalStates
          in (["Final states not covered in any transition's to_state: " ++ unwords missingFinals | not (null missingFinals)])
