@@ -22,6 +22,9 @@
 -   [ ] Test alias.json -> /dev/random
 -   [ ] Machine tester
 -   [ ] Understanding bonus
+-   [ ] Detect infinite loops
+-   [ ] Detect goes infinitely to the left or to the right
+-   [ ] Detected too many steps (hardcoded)
 
 ### Mandatory machines
 
