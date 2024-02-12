@@ -25,7 +25,7 @@
 
 ### Mandatory machines
 
--   [x] unary_add.json
+-   [ ] unary_add.json (TODO: keep input in output, like 111+11=11111)
 -   [x] palindrome.json
 -   [x] 0ton1ton.json
 -   [x] 0to2n.json
