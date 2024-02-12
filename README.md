@@ -34,7 +34,7 @@
 ### Bonus machines
 
 -   [x] unary_mul.json
--   [ ] binary_not.json
+-   [x] binary_not.json
 -   [ ] binary_and.json
 -   [ ] binary_or.json
 -   [ ] binary_xor.json
