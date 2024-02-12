@@ -2,19 +2,17 @@
 
 -   [x] Parse arguments
 -   [x] Parse JSON file
--   [ ] Check valid keys
--   [ ] Check valid `name`
--   [ ] Check valid `alphabet`
--   [ ] Check valid `blank`
--   [ ] Check valid `states`
--   [ ] Check valid `initial`
--   [ ] Check valid `finals`
--   [ ] Check valid `transitions`
+-   [x] Check valid keys
+-   [x] Check valid `name`
+-   [x] Check valid `alphabet`
+-   [x] Check valid `blank`
+-   [x] Check valid `states`
+-   [x] Check valid `initial`
+-   [x] Check valid `finals`
+-   [x] Check valid `transitions`
 -   [ ] Check valid input
 -   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
--   [ ] `parseJson` returns a `Result` instead of calling both `parseJson` and `checkJson` in `ftTuring`
--   [ ] Check JSON file has right format
--   [ ] Check input string
+-   [x] Check JSON file has right format
 -   [x] .cabal file
 -   [ ] Delete Makefile
 -   [ ] Test machine loop
