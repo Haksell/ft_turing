@@ -44,13 +44,14 @@
 ### Learning
 
 -   [ ] https://en.wikipedia.org/wiki/Turing_machine
+-   [ ] https://en.wikipedia.org/wiki/Universal_Turing_machine (Probably interesting for inception.json)
 -   [ ] https://plato.stanford.edu/entries/turing-machine/
 -   [ ] https://www.liafa.jussieu.fr/~carton/Enseignement/Complexite/MasterInfo/Cours/turing.html
 -   [ ] [https://www.alanturing.net/turing_archive/pages/reference articles/The Turing-Church Thesis.html](https://www.alanturing.net/turing_archive/pages/reference%20articles/The%20Turing-Church%20Thesis.html)
 
 ### Haskell
 
--   [ ] https://learnxinyminutes.com/docs/haskell/
+-   [x] https://learnxinyminutes.com/docs/haskell/
 -   [ ] https://wiki.haskell.org/Learn_Haskell_in_10_minutes
 -   [ ] https://singlelogin.re/book/3502163/054cf9/get-programming-with-haskell.html
 -   [ ] https://github.com/MondayMorningHaskell/haskellings

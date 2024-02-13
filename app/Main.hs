@@ -8,7 +8,6 @@ import System.Environment (getArgs, getProgName)
 
 isValidInput :: [String] -> String -> String -> Either String ()
 isValidInput machineAlphabet machineBlank input
-  | null input = Left "Input is empty"
   | machineBlank `elem` inputSymbols = Left "Input contains the blank symbol"
   | not (all (`elem` machineAlphabet) inputSymbols) = Left "Input contains symbols not in alphabet"
   | otherwise = Right ()
