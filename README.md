@@ -23,7 +23,7 @@
 -   [ ] Detect infinite loops
 -   [ ] Detect goes infinitely to the left or to the right
 -   [ ] Detected too many steps (hardcoded)
--   [ ] Check unknown state as transition keys
+-   [ ] Check unknown state as transition keys //can't be done (we don't have fixed order here. Can't know that is known state during parsing, only after)
 -   [ ] `--max_steps=n` argument (check >= 0)
 -   [ ] Handle display when tape goes to the left (use history instead of comtinuous display)
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(
