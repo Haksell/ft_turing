@@ -3,7 +3,7 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (isSuffixOf)
+import Data.List (isPrefixOf, isSuffixOf, partition)
 import Machine (Machine (alphabet, blank), parseMachine, printMachine, validateMachine)
 import System.Environment (getArgs, getProgName)
 
@@ -36,19 +36,23 @@ ftTuring jsonFilePath input debug =
                 Right _ -> doJob validMachine input debug
     else putStrLn "Error: the file path must end with '.json'."
 
+printHelp :: IO ()
+printHelp = do
+  progName <- getProgName
+  putStrLn $ "usage: " ++ progName ++ " machine.json input [--quiet]"
+  putStrLn "positional arguments:"
+  putStrLn "    machine.json    json description of the machine"
+  putStrLn "    input           input of the machine"
+  putStrLn "optional arguments:"
+  putStrLn "    -h, --help      show this help message and exit"
+  putStrLn "    -q, --quiet     only show final tape"
+
 main :: IO ()
 main = do
   args <- getArgs
-  case args of
-    [jsonFilePath, input] -> do ftTuring jsonFilePath input True
-    [jsonFilePath, input, "--quiet"] -> do ftTuring jsonFilePath input False
-    [jsonFilePath, input, "-q"] -> do ftTuring jsonFilePath input False
-    _ -> do
-      progName <- getProgName
-      putStrLn $ "usage: " ++ progName ++ " machine.json input [--quiet]"
-      putStrLn "positional arguments:"
-      putStrLn "    machine.json    json description of the machine"
-      putStrLn "    input           input of the machine"
-      putStrLn "optional arguments:"
-      putStrLn "    -h, --help      show this help message and exit"
-      putStrLn "    -q, --quiet     only show final tape"
+  let (flags, positional) = partition (isPrefixOf "-") args
+  if any (`elem` flags) ["-h", "--help"]
+    then printHelp
+    else case positional of
+      [jsonFilePath, input] -> ftTuring jsonFilePath input $ not $ any (`elem` flags) ["-q", "--quiet"]
+      _ -> printHelp
