@@ -1,0 +1,64 @@
+{
+    "name": "unary_mul",
+    "alphabet": ["1", ".", "*", "=", "o"],
+    "blank": ".",
+    "states": [
+        "start",
+        "find_term2",
+        "copy_change",
+        "copy_keep",
+        "write",
+        "copy_back",
+        "back_term2",
+        "back_term1",
+        "clean",
+        "HALT"
+    ],
+    "initial": "start",
+    "finals": ["HALT"],
+    "transitions": {
+        "start": [
+            { "read": "1", "to_state": "find_term2", "write": "o", "action": "RIGHT" },
+            { "read": "*", "to_state": "clean", "write": "*", "action": "LEFT" }
+        ],
+        "find_term2": [
+            { "read": "1", "to_state": "find_term2", "write": "1", "action": "RIGHT" },
+            { "read": "*", "to_state": "copy_change", "write": "*", "action": "RIGHT" }
+        ],
+        "copy_change": [
+            { "read": "1", "to_state": "copy_keep", "write": "o", "action": "RIGHT" },
+            { "read": "=", "to_state": "back_term2", "write": "=", "action": "RIGHT" }
+        ],
+        "copy_keep": [
+            { "read": "1", "to_state": "copy_keep", "write": "1", "action": "RIGHT" },
+            { "read": "=", "to_state": "write", "write": "=", "action": "RIGHT" }
+        ],
+        "write": [
+            { "read": "1", "to_state": "write", "write": "1", "action": "RIGHT" },
+            { "read": ".", "to_state": "copy_back", "write": "1", "action": "LEFT" }
+        ],
+        "copy_back": [
+            { "read": "1", "to_state": "copy_back", "write": "1", "action": "LEFT" },
+            { "read": "=", "to_state": "copy_back", "write": "=", "action": "LEFT" },
+            { "read": "o", "to_state": "copy_change", "write": "o", "action": "RIGHT" }
+        ],
+        "back_term2": [
+            { "read": "1", "to_state": "back_term2", "write": "1", "action": "LEFT" },
+            { "read": "*", "to_state": "back_term1", "write": "*", "action": "LEFT" },
+            { "read": "=", "to_state": "back_term2", "write": "=", "action": "LEFT" },
+            { "read": "o", "to_state": "back_term2", "write": "1", "action": "LEFT" },
+            { "read": ".", "to_state": "clean", "write": ".", "action": "LEFT" }
+        ],
+        "back_term1": [
+            { "read": "1", "to_state": "back_term1", "write": "1", "action": "LEFT" },
+            { "read": "o", "to_state": "start", "write": "o", "action": "RIGHT" }
+        ],
+        "clean": [
+            { "read": "o", "to_state": "clean", "write": "1", "action": "LEFT" },
+            { "read": "1", "to_state": "clean", "write": "1", "action": "LEFT" },
+            { "read": "*", "to_state": "clean", "write": "*", "action": "LEFT" },
+            { "read": "=", "to_state": "clean", "write": "=", "action": "LEFT" },
+            { "read": ".", "to_state": "HALT", "write": ".", "action": "LEFT" }
+        ]
+    }
+}

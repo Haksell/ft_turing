@@ -173,7 +173,7 @@ areTransitionsValid machineTransitions machine =
        in (["Final states not covered in any transition's to_state: " ++ unwords missingFinals | not (null missingFinals)])
 
 maxSteps :: Integer
-maxSteps = 100 -- TODO bigger default and user-defined (--max_steps=n)
+maxSteps = 10000 -- TODO user-defined (--max_steps=n)
 
 isValidInput :: [String] -> String -> String -> Either String ()
 isValidInput machineAlphabet machineBlank input
@@ -219,7 +219,7 @@ createTape :: String -> Tape
 createTape input = fromList $ enumerate input
 
 -- TODO: return start when we'll try to detect loops
--- TODO: check (ChatGPT) (forgot to delete blanks at the end)
+-- TODO: check (ChatGPT) (forgot to delete blanks at the end and start)
 stringifyTape :: Tape -> Integer -> Char -> String
 stringifyTape tape pos blank = "[" ++ concatMap showCell sortedCells ++ "]"
   where
