@@ -10,7 +10,7 @@
 -   [x] Check valid `initial`
 -   [x] Check valid `finals`
 -   [x] Check valid `transitions`
--   [ ] Check valid input
+-   [x] Check valid input
 -   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
 -   [x] Check JSON file has right format
 -   [x] .cabal file
@@ -26,6 +26,7 @@
 -   [ ] Check unknown state as transition keys
 -   [ ] `--max_steps=n` argument (check >= 0)
 -   [ ] Handle display when tape goes to the left (use history instead of comtinuous display)
+-   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(
 
 ### Mandatory machines
 
