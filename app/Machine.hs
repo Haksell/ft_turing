@@ -23,8 +23,7 @@ paddingLine = "*" ++ replicate (lineSize - 2) ' ' ++ "*"
 centerString :: Int -> Char -> String -> String
 centerString width padChar s = leftPad ++ s ++ rightPad
   where
-    totalPad = width - length s
-    (leftPadSize, parity) = totalPad `divMod` 2
+    (leftPadSize, parity) = (width - length s) `divMod` 2
     leftPad = replicate leftPadSize padChar
     rightPad = replicate (leftPadSize + parity) padChar
 
