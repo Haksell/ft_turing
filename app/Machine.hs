@@ -42,7 +42,7 @@ printMachine machine =
     "\n"
     [ borderLine,
       paddingLine,
-      "*" ++ centerString 78 ' ' (name machine) ++ "*",
+      "*" ++ centerString (lineSize - 2) ' ' (name machine) ++ "*",
       paddingLine,
       borderLine,
       "Alphabet: " ++ showLikeArray (alphabet machine),
