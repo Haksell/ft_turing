@@ -48,6 +48,11 @@
 -   [ ] https://plato.stanford.edu/entries/turing-machine/
 -   [ ] https://www.liafa.jussieu.fr/~carton/Enseignement/Complexite/MasterInfo/Cours/turing.html
 -   [ ] [https://www.alanturing.net/turing_archive/pages/reference articles/The Turing-Church Thesis.html](https://www.alanturing.net/turing_archive/pages/reference%20articles/The%20Turing-Church%20Thesis.html)
+-   [ ] https://en.wikipedia.org/wiki/Input/output_automaton
+-   [ ] https://en.wikipedia.org/wiki/Real_RAM
+-   [ ] https://en.wikipedia.org/wiki/Pushdown_automaton
+-   [ ] https://en.wikipedia.org/wiki/Stored-program_computer
+-   [ ] https://en.wikipedia.org/wiki/Random-access_stored-program_machine
 
 ### Haskell
 
