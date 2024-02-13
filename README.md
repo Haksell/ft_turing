@@ -24,6 +24,8 @@
 -   [ ] Detect goes infinitely to the left or to the right
 -   [ ] Detected too many steps (hardcoded)
 -   [ ] Check unknown state as transition keys
+-   [ ] `--max_steps=n` argument (check >= 0)
+-   [ ] Handle display when tape goes to the left (use history instead of comtinuous display)
 
 ### Mandatory machines
 
