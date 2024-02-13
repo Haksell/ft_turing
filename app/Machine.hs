@@ -8,7 +8,7 @@ import Data.Aeson
   )
 import Data.Aeson.Types (FromJSON (parseJSON), Options, genericParseJSON, rejectUnknownFields)
 import qualified Data.ByteString.Lazy as B
-import Data.Either
+import Data.Either (lefts)
 import Data.List (intercalate, nub)
 import qualified Data.Map as Map
 import GHC.Generics (Generic)
