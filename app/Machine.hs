@@ -11,6 +11,33 @@ import qualified Data.Map as Map
 import GHC.Generics (Generic)
 import Prelude hiding (read)
 
+data Transition = Transition
+  { read :: String,
+    to_state :: String, -- TODO: toState
+    write :: String,
+    action :: String
+  }
+  deriving (Show, Generic)
+
+type Transitions = Map.Map String [Transition]
+
+data Machine = Machine
+  { name :: String,
+    alphabet :: [String],
+    blank :: String,
+    states :: [String],
+    initial :: String,
+    finals :: [String],
+    transitions :: Transitions
+  }
+  deriving (Show, Generic)
+
+instance FromJSON Machine where
+  parseJSON = genericParseJSON $ aesonOptions "Machine"
+
+instance FromJSON Transition where
+  parseJSON = genericParseJSON $ aesonOptions "Transition"
+
 lineSize :: Int
 lineSize = 80
 
@@ -64,33 +91,6 @@ printTransition state transition =
   showLikeTuple [state, read transition]
     ++ " -> "
     ++ showLikeTuple [to_state transition, write transition, action transition]
-
-type Transitions = Map.Map String [Transition]
-
-data Machine = Machine
-  { name :: String,
-    alphabet :: [String],
-    blank :: String,
-    states :: [String],
-    initial :: String,
-    finals :: [String],
-    transitions :: Transitions
-  }
-  deriving (Show, Generic)
-
-data Transition = Transition
-  { read :: String,
-    to_state :: String,
-    write :: String,
-    action :: String
-  }
-  deriving (Show, Generic)
-
-instance FromJSON Machine where
-  parseJSON = genericParseJSON $ aesonOptions "Machine"
-
-instance FromJSON Transition where
-  parseJSON = genericParseJSON $ aesonOptions "Transition"
 
 aesonOptions :: String -> Options
 aesonOptions _ = defaultOptions {rejectUnknownFields = True}
