@@ -2,10 +2,7 @@
 
 module Machine where
 
-import Data.Aeson
-  ( defaultOptions,
-    eitherDecode,
-  )
+import Data.Aeson (defaultOptions, eitherDecode)
 import Data.Aeson.Types (FromJSON (parseJSON), Options, genericParseJSON, rejectUnknownFields)
 import qualified Data.ByteString.Lazy as B
 import Data.Either (lefts)
@@ -14,36 +11,60 @@ import qualified Data.Map as Map
 import GHC.Generics (Generic)
 import Prelude hiding (read)
 
+lineSize :: Int
+lineSize = 80
+
+borderLine :: String
+borderLine = replicate lineSize '*'
+
+paddingLine :: String
+paddingLine = "*" ++ replicate (lineSize - 2) ' ' ++ "*"
+
+centerString :: Int -> Char -> String -> String
+centerString width padChar s = leftPad ++ s ++ rightPad
+  where
+    totalPad = width - length s
+    (leftPadSize, parity) = totalPad `divMod` 2
+    leftPad = replicate leftPadSize padChar
+    rightPad = replicate (leftPadSize + parity) padChar
+
+commaSeparated :: String -> String -> [String] -> String
+commaSeparated start end xs = start ++ intercalate ", " xs ++ end
+
+showLikeTuple :: [String] -> String
+showLikeTuple = commaSeparated "(" ")"
+
+showLikeArray :: [String] -> String
+showLikeArray = commaSeparated "[" "]"
+
 printMachine :: Machine -> String
 printMachine machine =
-  unlines
-    [ "name: " ++ name machine,
-      "Alphabet: [" ++ intercalate ", " (alphabet machine) ++ "]",
-      "States: [" ++ intercalate ", " (states machine) ++ "]",
+  intercalate
+    "\n"
+    [ borderLine,
+      paddingLine,
+      "*" ++ centerString 78 ' ' (name machine) ++ "*",
+      paddingLine,
+      borderLine,
+      "Alphabet: " ++ showLikeArray (alphabet machine),
+      "States: " ++ showLikeArray (states machine),
       "Initial: " ++ initial machine,
-      "Finals: [" ++ intercalate ", " (finals machine) ++ "]",
-      printTransitions (transitions machine)
+      "Finals: " ++ showLikeArray (finals machine),
+      printTransitions (transitions machine),
+      borderLine
     ]
 
 printTransitions :: Transitions -> String
-printTransitions t = unlines $ concatMap printStateTransitions (Map.toList t)
+printTransitions t = intercalate "\n" $ concatMap printStateTransitions (Map.toList t)
 
 printStateTransitions :: (String, [Transition]) -> [String]
 printStateTransitions (state, ts) = map (printTransition state) ts
 
 printTransition :: String -> Transition -> String
 printTransition state transition =
-  "("
-    ++ state
-    ++ ", "
-    ++ read transition
-    ++ ") -> ("
-    ++ to_state transition
-    ++ ", "
-    ++ write transition
-    ++ ", "
-    ++ action transition
-    ++ ")"
+  showLikeTuple [state, read transition]
+    ++ " -> "
+    ++ showLikeTuple [to_state transition, write transition, action transition]
 
 type Transitions = Map.Map String [Transition]
 

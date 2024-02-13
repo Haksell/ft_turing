@@ -15,8 +15,7 @@ isValidInput machineAlphabet machineBlank input
     inputSymbols = map (: []) input
 
 doJob :: Machine -> String -> IO ()
-doJob machine input = do
-  print input
+doJob machine _input = do
   putStrLn $ printMachine machine
 
 main :: IO ()
