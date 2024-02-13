@@ -11,8 +11,8 @@ isValidInput machineAlphabet machineBlank input
   | machineBlank `elem` inputSymbols = Left "Input contains the blank symbol"
   | not (all (`elem` machineAlphabet) inputSymbols) = Left "Input contains symbols not in alphabet"
   | otherwise = Right ()
- where
-  inputSymbols = map (: []) input
+  where
+    inputSymbols = map (: []) input
 
 doJob :: Machine -> String -> IO ()
 doJob machine input = do
