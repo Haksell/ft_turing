@@ -27,7 +27,6 @@
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(, (amyroshn)
 -   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
 -   [ ] Test alias.json -> /dev/random
--   [ ] isValidInput return Maybe instead of Either with ()
 
 ### Mandatory machines
 
