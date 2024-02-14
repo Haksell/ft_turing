@@ -3,7 +3,7 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (intercalate, isSuffixOf, nub)
+import Data.List (intercalate, isSuffixOf, nub, sort)
 import Data.Map.Strict as Map (fromList)
 import Data.Maybe (fromMaybe)
 import Data.Set qualified as Set
