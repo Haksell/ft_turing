@@ -1,3 +1,7 @@
+### universal_turing_machine.json
+
+cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'P#P1P1RP+E1RE1E1RE=D.LD1H.R#11+111='
+
 ### binary_and.json same size
 
 clear
