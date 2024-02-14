@@ -1,0 +1,25 @@
+{
+    "name": "loop",
+    "alphabet": ["r", "l", "!", "."],
+    "blank": ".",
+    "states": ["loop0", "loop1", "loop2", "HALT"],
+    "initial": "loop0",
+    "finals": ["HALT"],
+    "transitions": {
+        "loop0": [
+            { "read": "r", "to_state": "loop1", "write": "r", "action": "RIGHT" },
+            { "read": "l", "to_state": "loop1", "write": "l", "action": "LEFT" },
+            { "read": "!", "to_state": "HALT", "write": "!", "action": "RIGHT" }
+        ],
+        "loop1": [
+            { "read": "r", "to_state": "loop2", "write": "r", "action": "RIGHT" },
+            { "read": "l", "to_state": "loop2", "write": "l", "action": "LEFT" },
+            { "read": "!", "to_state": "HALT", "write": "!", "action": "RIGHT" }
+        ],
+        "loop2": [
+            { "read": "r", "to_state": "loop0", "write": "r", "action": "RIGHT" },
+            { "read": "l", "to_state": "loop0", "write": "l", "action": "LEFT" },
+            { "read": "!", "to_state": "HALT", "write": "!", "action": "RIGHT" }
+        ]
+    }
+}
