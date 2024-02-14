@@ -43,10 +43,7 @@
 -   [ ] unary_to_binary.json
 -   [ ] binary_to_unary.json
 -   [x] binary_not.json
--   [ ] binary_and.json
--   [ ] binary_or.json
--   [ ] binary_xor.json
--   [ ] binary_add.json
+-   [x] binary_and.json
 
 ### Learning
 
