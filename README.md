@@ -1,5 +1,7 @@
 ### TODO
 
+-   [ ] `--max_steps=n` argument (check >= 0)
+-   [ ] Detect infinite loops
 -   [x] Parse arguments
 -   [x] Parse JSON file
 -   [x] Check valid keys
@@ -20,13 +22,11 @@
 -   [ ] Test alias.json -> /dev/random
 -   [ ] Machine tester
 -   [ ] Understanding bonus
--   [ ] Detect infinite loops
--   [ ] Detect goes infinitely to the left or to the right
--   [ ] Detected too many steps (hardcoded)
+-   [x] Detected too many steps (hardcoded)
 -   [ ] Check unknown state as transition keys //can't be done (we don't have fixed order here. Can't know that is known state during parsing, only after)
--   [ ] `--max_steps=n` argument (check >= 0)
 -   [ ] Handle display when tape goes to the left (use history instead of comtinuous display)
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(
+-   [ ] Detect goes infinitely to the left or to the right (not required imo)
 
 ### Mandatory machines
 
