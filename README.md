@@ -21,7 +21,7 @@
 -   [x] `--max_steps=n` argument (check >= 0)
 -   [x] Detect infinite loops (axbrisse)
 -   [ ] Understanding bonus (axbrisse)
--   [ ] Test machine loop (amyroshn)
+-   [ ] Test machine loop (amyroshn) (cabal run -v0 exe:ft_turing -- tests/resources/ambiguous/buggy_and.json '1001&0101=')
 -   [ ] Valid machine tester (amyroshn)
 -   [ ] Check unknown state as transition keys (amyroshn)
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(, (amyroshn)
