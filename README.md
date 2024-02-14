@@ -19,10 +19,10 @@
 -   [x] .cabal file
 -   [x] Detected too many steps (hardcoded)
 -   [x] `--max_steps=n` argument (check >= 0)
--   [ ] Detect infinite loops (axbrisse)
--   [ ] Test machine loop
--   [ ] Machine tester
--   [ ] Understanding bonus
+-   [x] Detect infinite loops (axbrisse)
+-   [ ] Understanding bonus (axbrisse)
+-   [ ] Test machine loop (amyroshn)
+-   [ ] Valid machine tester (amyroshn)
 -   [ ] Check unknown state as transition keys (amyroshn)
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(, (amyroshn)
 -   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
@@ -39,6 +39,9 @@
 ### Bonus machines
 
 -   [x] unary_mul.json
+-   [ ] unary_prime.json
+-   [ ] unary_to_binary.json
+-   [ ] binary_to_unary.json
 -   [x] binary_not.json
 -   [ ] binary_and.json
 -   [ ] binary_or.json

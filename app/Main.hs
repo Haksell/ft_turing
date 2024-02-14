@@ -3,9 +3,10 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (isSuffixOf, sort)
+import Data.List (intercalate, isSuffixOf, sort)
 import Data.Map.Strict as Map (Map, fromList, insert, lookup, member, toList)
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, listToMaybe)
+import Data.Set qualified as Set
 import Machine (Machine (..), Transition (..), buildMachine, printMachine)
 import Options.Applicative
   ( Parser,
@@ -30,14 +31,18 @@ import Options.Applicative
 
 type Tape = Map.Map Integer Char
 
+type CompleteState = (String, String, Maybe Integer)
+
 defaultMaxSteps :: Integer
 defaultMaxSteps = 10000
 
-isValidInput :: [Char] -> Char -> String -> Either String ()
+isValidInput :: [Char] -> Char -> String -> Maybe String
 isValidInput machineAlphabet machineBlank input
-  | machineBlank `elem` input = Left "Input contains the blank symbol"
-  | not (all (`elem` machineAlphabet) input) = Left "Input contains symbols not in the alphabet"
-  | otherwise = Right ()
+  | machineBlank `elem` input = Just "Input contains the blank symbol"
+  | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) unknownChars)
+  | otherwise = Nothing
+  where
+    unknownChars = filter (`notElem` machineAlphabet) input
 
 enumerate :: [a] -> [(Integer, a)]
 enumerate = zip [0 ..]
@@ -45,38 +50,73 @@ enumerate = zip [0 ..]
 createTape :: String -> Tape
 createTape input = fromList $ enumerate input
 
--- TODO: return start when we'll try to detect loops
-stringifyTape :: Tape -> Integer -> Char -> String
-stringifyTape tape pos blankChar = "[" ++ concatMap showCell nonBlankCells ++ "]"
+stringifyTapeWithPos :: Tape -> Integer -> Char -> (String, Maybe Integer)
+stringifyTapeWithPos tape pos blankChar =
+  ( "[" ++ concatMap showCell nonBlankCells ++ "]",
+    listToMaybe $ map fst nonBlankCells
+  )
   where
     sortedCells = sort (Map.toList tape)
     dropStartBlanks = dropWhile (\(_, c) -> c == blankChar)
     filterBlanks = reverse . dropStartBlanks . reverse . dropStartBlanks
-    showCell (k, v)
-      | k == pos = "<" ++ [v] ++ ">"
-      | otherwise = [v]
+    showCell (k, v) = if k == pos then "<" ++ [v] ++ ">" else [v]
     nonBlankCells = filterBlanks sortedCells
 
-execute :: Bool -> Integer -> Integer -> Machine -> Tape -> String -> Integer -> IO (Tape, Integer, String)
-execute debug maxSteps remainingSteps machine tape state pos
+stringifyTape :: Tape -> Integer -> Char -> String
+stringifyTape tape pos blankChar = fst $ stringifyTapeWithPos tape pos blankChar
+
+execute :: Bool -> Integer -> Integer -> Machine -> Tape -> String -> Integer -> Set.Set CompleteState -> IO (Tape, Integer, String)
+execute debug maxSteps remainingSteps machine tape state pos visitedStates
   | state `elem` finals machine = return (tape, pos, "Final state: " ++ state)
   | remainingSteps == 0 = return (tape, pos, "No final state found after " ++ show maxSteps ++ " steps")
+  | Set.member completeState visitedStates = return (tape, pos, "Infinite loop detected at state: " ++ state)
   | otherwise = do
-      let machineBlank = blank machine
-      let newTape = if pos `member` tape then tape else insert pos machineBlank tape
-      let cell = fromJust $ Map.lookup pos newTape
       case Map.lookup (state, cell) $ transitions machine of
         Nothing -> return (newTape, pos, "Unexpected transition: (" ++ state ++ ", " ++ [cell] ++ ")")
         Just tv -> do
-          when debug $ putStrLn $ stringifyTape newTape pos machineBlank ++ " (" ++ state ++ ", " ++ [cell] ++ ") -> (" ++ toState tv ++ ", " ++ [writeChar tv] ++ ", " ++ (if isLeft tv then "LEFT" else "RIGHT") ++ ")"
-          execute debug maxSteps (remainingSteps - 1) machine (insert pos (writeChar tv) newTape) (toState tv) (if isLeft tv then pos - 1 else pos + 1)
-
--- TODO: completeState stuff
+          when debug $
+            putStrLn $
+              stringifyTape newTape pos blankChar
+                ++ " ("
+                ++ state
+                ++ ", "
+                ++ [cell]
+                ++ ") -> ("
+                ++ toState tv
+                ++ ", "
+                ++ [writeChar tv]
+                ++ ", "
+                ++ (if isLeft tv then "LEFT" else "RIGHT")
+                ++ ")"
+          execute
+            debug
+            maxSteps
+            (remainingSteps - 1)
+            machine
+            (insert pos (writeChar tv) newTape)
+            (toState tv)
+            (if isLeft tv then pos - 1 else pos + 1)
+            (Set.insert completeState visitedStates)
+  where
+    blankChar = blank machine
+    (strTape, start) = stringifyTapeWithPos tape pos blankChar
+    completeState = (state, strTape, fmap (pos -) start)
+    newTape = if pos `member` tape then tape else insert pos blankChar tape
+    cell = fromJust $ Map.lookup pos newTape
 
 ftTuring :: Machine -> String -> Bool -> Integer -> IO ()
 ftTuring machine input debug maxSteps = do
   when debug $ putStrLn $ printMachine machine
-  (finalTape, finalPos, finalMessage) <- execute debug maxSteps maxSteps machine (createTape input) (initial machine) 0
+  (finalTape, finalPos, finalMessage) <-
+    execute
+      debug
+      maxSteps
+      maxSteps
+      machine
+      (createTape input)
+      (initial machine)
+      0
+      Set.empty
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
@@ -115,6 +155,6 @@ main = do
         Left parsingError -> putStrLn parsingError
         Right machine ->
           case isValidInput (alphabet machine) (blank machine) input of
-            Left err -> putStrLn $ "Error: " ++ err
-            Right _ -> ftTuring machine input debug maxSteps
+            Just err -> putStrLn $ "Error: " ++ err
+            Nothing -> ftTuring machine input debug maxSteps
     else putStrLn "Error: the file path must end with '.json'."
