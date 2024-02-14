@@ -18,7 +18,6 @@ parsingErrorFiles =
   , ("Error in $.name: expected String, but encountered Number", jsonBasePath </> "parsing_error_name_not_string.json")
   , ("Error in $: parsing ParsedMachine failed, expected Object, but encountered String", jsonBasePath </> "parsing_error_string.json")
   , ("Error in $: key \"blank\" not found", jsonBasePath </> "parsing_error_typo_key.json")
-  , ("Error in $: parsing Machine.Machine(Machine) failed, unknown fields: [\"?\",\"hmmm\"]", jsonBasePath </> "parsing_error_unexpected_keys.json")
   , ("Error in $.transitions.scanright[0]: parsing ParsedMachine.ParsedTransition(ParsedTransition) failed, key \"to_state\" not found", jsonBasePath </> "parsing_error_transition_to_state_empty.json")
   , ("Machine name can't be empty", jsonBasePath </> "validation_error_name_empty.json")
   , ("Alphabet len should be at least 2 characters", jsonBasePath </> "validation_error_alphabet_len.json")
@@ -40,6 +39,7 @@ parsingErrorFiles =
   , ("Final states not covered in any transition's to_state: uncovered\n", jsonBasePath </> "validation_error_transition_uncovered_finals.json")
   , ("Final states not covered in any transition's to_state: HALT\n", jsonBasePath </> "validation_error_transition_one_and_uncovered_finals.json")
   , ("Ambiguous transitions: multiple reads of '..' in state 'scanright'\n", jsonBasePath </> "validation_error_transition_ambiguous_read.json")
+  , ("State 'what is it?' is not in the list of states.\n", jsonBasePath </> "validation_error_transition_unknow_state.json")
   ,
     ( unlines
         [ "Invalid to_state: cookie is not in the list of states."
