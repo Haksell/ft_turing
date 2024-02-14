@@ -67,43 +67,40 @@ execute :: Bool -> Integer -> Integer -> Machine -> Tape -> String -> Integer ->
 execute debug maxSteps remainingSteps machine tape state pos visitedStates
   | state `elem` finals machine = return (tape, pos, "Final state: " ++ state)
   | remainingSteps == 0 = return (tape, pos, "No final state found after " ++ show maxSteps ++ " steps")
+  | Set.member completeState visitedStates = return (tape, pos, "Infinite loop detected at state: " ++ state)
   | otherwise = do
-      let blankChar = blank machine
-      let (strTape, start) = stringifyTapeWithPos tape pos blankChar
-      let completeState = (state, strTape, fmap (pos -) start)
-      if Set.member completeState visitedStates
-        then return (tape, pos, "Infinite loop detected at state: " ++ state)
-        else do
-          let newTape = if pos `member` tape then tape else insert pos blankChar tape
-          let cell = fromJust $ Map.lookup pos newTape
-          case Map.lookup (state, cell) $ transitions machine of
-            Nothing -> return (newTape, pos, "Unexpected transition: (" ++ state ++ ", " ++ [cell] ++ ")")
-            Just tv -> do
-              when debug $
-                putStrLn $
-                  stringifyTape newTape pos blankChar
-                    ++ " ("
-                    ++ state
-                    ++ ", "
-                    ++ [cell]
-                    ++ ") -> ("
-                    ++ toState tv
-                    ++ ", "
-                    ++ [writeChar tv]
-                    ++ ", "
-                    ++ (if isLeft tv then "LEFT" else "RIGHT")
-                    ++ ")"
-              execute
-                debug
-                maxSteps
-                (remainingSteps - 1)
-                machine
-                (insert pos (writeChar tv) newTape)
-                (toState tv)
-                (if isLeft tv then pos - 1 else pos + 1)
-                (Set.insert completeState visitedStates)
-
--- TODO: completeState stuff
+      case Map.lookup (state, cell) $ transitions machine of
+        Nothing -> return (newTape, pos, "Unexpected transition: (" ++ state ++ ", " ++ [cell] ++ ")")
+        Just tv -> do
+          when debug $
+            putStrLn $
+              stringifyTape newTape pos blankChar
+                ++ " ("
+                ++ state
+                ++ ", "
+                ++ [cell]
+                ++ ") -> ("
+                ++ toState tv
+                ++ ", "
+                ++ [writeChar tv]
+                ++ ", "
+                ++ (if isLeft tv then "LEFT" else "RIGHT")
+                ++ ")"
+          execute
+            debug
+            maxSteps
+            (remainingSteps - 1)
+            machine
+            (insert pos (writeChar tv) newTape)
+            (toState tv)
+            (if isLeft tv then pos - 1 else pos + 1)
+            (Set.insert completeState visitedStates)
+  where
+    blankChar = blank machine
+    (strTape, start) = stringifyTapeWithPos tape pos blankChar
+    completeState = (state, strTape, fmap (pos -) start)
+    newTape = if pos `member` tape then tape else insert pos blankChar tape
+    cell = fromJust $ Map.lookup pos newTape
 
 ftTuring :: Machine -> String -> Bool -> Integer -> IO ()
 ftTuring machine input debug maxSteps = do
