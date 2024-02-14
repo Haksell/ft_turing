@@ -1,6 +1,6 @@
 {
     "name": "binary_not",
-    "alphabet": ["0", "1"],
+    "alphabet": ["0", "1", "."],
     "blank": ".",
     "states": ["gogo", "HALT"],
     "initial": "gogo",
