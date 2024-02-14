@@ -1,6 +1,7 @@
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+import Complexity (calculateComplexity)
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
 import Data.List (
@@ -9,7 +10,7 @@ import Data.List (
   nub,
   sort,
  )
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, isJust)
 import Data.Set qualified as Set
 import Executor (createTape, execute, stringifyTape)
 import Machine (Machine (..), buildMachine, printMachine)
@@ -33,6 +34,7 @@ import Options.Applicative (
   switch,
   (<**>),
  )
+import Options.Applicative.Builder (strOption)
 
 defaultMaxSteps :: Integer
 defaultMaxSteps = 10000
@@ -62,8 +64,9 @@ ftTuring machine input debug maxSteps = do
 
 data CommandLineArgs = CommandLineArgs
   { argJsonFilePath :: String
-  , argInput :: String
+  , argInput :: Maybe String
   , argQuiet :: Bool
+  , argComplex :: Maybe String
   , argMaxSteps :: Maybe Integer
   }
 
@@ -78,8 +81,9 @@ parseCommandLineArgs :: Parser CommandLineArgs
 parseCommandLineArgs =
   CommandLineArgs
     <$> argument str (metavar "machine.json" <> help "json description of the machine")
-    <*> argument str (metavar "input" <> help "input of the machine")
+    <*> optional (argument str (metavar "input" <> help "input of the machine"))
     <*> switch (long "quiet" <> short 'q' <> help "only show final tape")
+    <*> optional (strOption (long "complexity" <> metavar "pattern" <> short 'c' <> help "complexity pattern to match"))
     <*> optional (option positiveInteger (long "max-steps" <> short 'm' <> metavar "n" <> help "maximum number of iterations (must be positive)"))
 
 main :: IO ()
@@ -87,6 +91,7 @@ main = do
   args <- execParser $ info (parseCommandLineArgs <**> helper) fullDesc
   let jsonFilePath = argJsonFilePath args
   let input = argInput args
+  let complexity = argComplex args
   let debug = not $ argQuiet args
   let maxSteps = fromMaybe defaultMaxSteps $ argMaxSteps args
   if ".json" `isSuffixOf` jsonFilePath
@@ -95,7 +100,12 @@ main = do
       case buildMachine jsonFileContents of
         Left parsingError -> putStrLn parsingError
         Right machine ->
-          case isValidInput (alphabet machine) (blank machine) input of
-            Just err -> putStrLn $ "Error: " ++ err
-            Nothing -> ftTuring machine input debug maxSteps
+          if isJust complexity
+            then calculateComplexity
+            else case input of
+              Nothing -> putStrLn "Error: input is required."
+              Just actualInput ->
+                case isValidInput (alphabet machine) (blank machine) actualInput of
+                  Just err -> putStrLn $ "Error: " ++ err
+                  Nothing -> ftTuring machine actualInput debug maxSteps
     else putStrLn "Error: the file path must end with '.json'."
