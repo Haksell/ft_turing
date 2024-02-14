@@ -3,32 +3,32 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (intercalate, isSuffixOf)
+import Data.List (intercalate, isSuffixOf, nub)
 import Data.Map.Strict as Map (fromList)
 import Data.Maybe (fromMaybe)
 import Data.Set qualified as Set
-import Machine (Machine (..), buildMachine, printMachine)
-import Options.Applicative (
-  Parser,
-  ReadM,
-  argument,
-  auto,
-  execParser,
-  fullDesc,
-  help,
-  helper,
-  info,
-  long,
-  metavar,
-  option,
-  optional,
-  readerError,
-  short,
-  str,
-  switch,
-  (<**>),
- )
 import Executor
+import Machine (Machine (..), buildMachine, printMachine)
+import Options.Applicative
+  ( Parser,
+    ReadM,
+    argument,
+    auto,
+    execParser,
+    fullDesc,
+    help,
+    helper,
+    info,
+    long,
+    metavar,
+    option,
+    optional,
+    readerError,
+    short,
+    str,
+    switch,
+    (<**>),
+  )
 
 defaultMaxSteps :: Integer
 defaultMaxSteps = 10000
@@ -36,10 +36,10 @@ defaultMaxSteps = 10000
 isValidInput :: [Char] -> Char -> String -> Maybe String
 isValidInput machineAlphabet machineBlank input
   | machineBlank `elem` input = Just "Input contains the blank symbol"
-  | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) unknownChars)
+  | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) (sort $ nub unknownChars))
   | otherwise = Nothing
- where
-  unknownChars = filter (`notElem` machineAlphabet) input
+  where
+    unknownChars = filter (`notElem` machineAlphabet) input
 
 enumerate :: [a] -> [(Integer, a)]
 enumerate = zip [0 ..]
@@ -63,10 +63,10 @@ ftTuring machine input debug maxSteps = do
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
-  { argJsonFilePath :: String
-  , argInput :: String
-  , argQuiet :: Bool
-  , argMaxSteps :: Maybe Integer
+  { argJsonFilePath :: String,
+    argInput :: String,
+    argQuiet :: Bool,
+    argMaxSteps :: Maybe Integer
   }
 
 positiveInteger :: ReadM Integer
