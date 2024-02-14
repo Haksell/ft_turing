@@ -11,7 +11,10 @@ common warnings
 executable ft_turing
   import:           warnings
   main-is:          Main.hs
-  other-modules:    Machine ParsedMachine
+  other-modules:
+    Machine
+    ParsedMachine
+
   hs-source-dirs:   app
   default-language: Haskell2010
   build-depends:
@@ -20,15 +23,16 @@ executable ft_turing
     , base
     , bytestring
     , containers
+    , optparse-applicative
     , text
     , unordered-containers
-  
+
 test-suite parsing-tests
-  type:                exitcode-stdio-1.0
-  main-is:             test_Machine.hs
-  hs-source-dirs:      app tests
-  other-modules:       Machine
-  build-depends:       
+  type:           exitcode-stdio-1.0
+  main-is:        test_Machine.hs
+  hs-source-dirs: app tests
+  other-modules:  Machine
+  build-depends:
     , aeson
     , aeson-pretty
     , base
@@ -40,5 +44,5 @@ test-suite parsing-tests
     , process
     , text
     , unordered-containers
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
 
+  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
