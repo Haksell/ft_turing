@@ -1,7 +1,9 @@
+### Commands
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/unary_mul.json '111*11='`
+
 ### TODO
 
--   [ ] `--max_steps=n` argument (check >= 0)
--   [ ] Detect infinite loops
 -   [x] Parse arguments
 -   [x] Parse JSON file
 -   [x] Check valid keys
@@ -13,20 +15,18 @@
 -   [x] Check valid `finals`
 -   [x] Check valid `transitions`
 -   [x] Check valid input
--   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
 -   [x] Check JSON file has right format
 -   [x] .cabal file
--   [ ] Delete Makefile
+-   [x] Detected too many steps (hardcoded)
+-   [x] `--max_steps=n` argument (check >= 0)
+-   [ ] Detect infinite loops (axbrisse)
 -   [ ] Test machine loop
--   [ ] Test machine too far
--   [ ] Test alias.json -> /dev/random
 -   [ ] Machine tester
 -   [ ] Understanding bonus
--   [x] Detected too many steps (hardcoded)
--   [ ] Check unknown state as transition keys //can't be done (we don't have fixed order here. Can't know that is known state during parsing, only after)
--   [ ] Handle display when tape goes to the left (use history instead of comtinuous display)
--   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(
--   [ ] Detect goes infinitely to the left or to the right (not required imo)
+-   [ ] Check unknown state as transition keys (amyroshn)
+-   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(, (amyroshn)
+-   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
+-   [ ] Test alias.json -> /dev/random
 
 ### Mandatory machines
 
