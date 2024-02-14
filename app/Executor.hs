@@ -10,6 +10,7 @@ import Data.Set qualified as Set
 import Machine (Machine (..), Transition (..))
 
 type CompleteState = (String, String, Maybe Integer)
+
 type Tape = Map.Map Integer Char
 
 enumerate :: [a] -> [(Integer, a)]
@@ -20,15 +21,15 @@ createTape input = fromList $ enumerate input
 
 stringifyTapeWithPos :: Tape -> Integer -> Char -> (String, Maybe Integer)
 stringifyTapeWithPos tape pos blankChar =
-  ( "[" ++ concatMap showCell nonBlankCells ++ "]"
-  , listToMaybe $ map fst nonBlankCells
+  ( "[" ++ concatMap showCell nonBlankCells ++ "]",
+    listToMaybe $ map fst nonBlankCells
   )
- where
-  sortedCells = sort (Map.toList tape)
-  dropStartBlanks = dropWhile (\(_, c) -> c == blankChar)
-  filterBlanks = reverse . dropStartBlanks . reverse . dropStartBlanks
-  showCell (k, v) = if k == pos then "<" ++ [v] ++ ">" else [v]
-  nonBlankCells = filterBlanks sortedCells
+  where
+    sortedCells = sort (Map.toList tape)
+    dropStartBlanks = dropWhile (\(_, c) -> c == blankChar)
+    filterBlanks = reverse . dropStartBlanks . reverse . dropStartBlanks
+    showCell (k, v) = if k == pos then "<" ++ [v] ++ ">" else [v]
+    nonBlankCells = filterBlanks sortedCells
 
 stringifyTape :: Tape -> Integer -> Char -> String
 stringifyTape tape pos blankChar = fst $ stringifyTapeWithPos tape pos blankChar
@@ -65,9 +66,9 @@ execute debug maxSteps remainingSteps machine tape state pos visitedStates
             (toState tv)
             (if isLeft tv then pos - 1 else pos + 1)
             (Set.insert completeState visitedStates)
- where
-  blankChar = blank machine
-  (strTape, start) = stringifyTapeWithPos tape pos blankChar
-  completeState = (state, strTape, fmap (pos -) start)
-  newTape = if pos `member` tape then tape else insert pos blankChar tape
-  cell = fromJust $ Map.lookup pos newTape
+  where
+    blankChar = blank machine
+    (strTape, start) = stringifyTapeWithPos tape pos blankChar
+    completeState = (state, strTape, fmap (pos -) start)
+    newTape = if pos `member` tape then tape else insert pos blankChar tape
+    cell = fromJust $ Map.lookup pos newTape

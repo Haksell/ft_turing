@@ -4,36 +4,36 @@
 import Complexity (calculateComplexity)
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (
-  intercalate,
-  isSuffixOf,
-  nub,
-  sort,
- )
+import Data.List
+  ( intercalate,
+    isSuffixOf,
+    nub,
+    sort,
+  )
 import Data.Maybe (fromMaybe, isJust)
 import Data.Set qualified as Set
 import Executor (createTape, execute, stringifyTape)
 import Machine (Machine (..), buildMachine, printMachine)
-import Options.Applicative (
-  Parser,
-  ReadM,
-  argument,
-  auto,
-  execParser,
-  fullDesc,
-  help,
-  helper,
-  info,
-  long,
-  metavar,
-  option,
-  optional,
-  readerError,
-  short,
-  str,
-  switch,
-  (<**>),
- )
+import Options.Applicative
+  ( Parser,
+    ReadM,
+    argument,
+    auto,
+    execParser,
+    fullDesc,
+    help,
+    helper,
+    info,
+    long,
+    metavar,
+    option,
+    optional,
+    readerError,
+    short,
+    str,
+    switch,
+    (<**>),
+  )
 import Options.Applicative.Builder (strOption)
 
 defaultMaxSteps :: Integer
@@ -44,8 +44,8 @@ isValidInput machineAlphabet machineBlank input
   | machineBlank `elem` input = Just "Input contains the blank symbol"
   | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) (sort $ nub unknownChars))
   | otherwise = Nothing
- where
-  unknownChars = filter (`notElem` machineAlphabet) input
+  where
+    unknownChars = filter (`notElem` machineAlphabet) input
 
 ftTuring :: Machine -> String -> Bool -> Integer -> IO ()
 ftTuring machine input debug maxSteps = do
@@ -63,11 +63,11 @@ ftTuring machine input debug maxSteps = do
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
-  { argJsonFilePath :: String
-  , argInput :: Maybe String
-  , argQuiet :: Bool
-  , argComplex :: Maybe String
-  , argMaxSteps :: Maybe Integer
+  { argJsonFilePath :: String,
+    argInput :: Maybe String,
+    argQuiet :: Bool,
+    argComplex :: Maybe String,
+    argMaxSteps :: Maybe Integer
   }
 
 positiveInteger :: ReadM Integer
