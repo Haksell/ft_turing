@@ -10,5 +10,5 @@ fclean:
 
 re: fclean all
 
-.PHONY: all compile run fclean re
+.PHONY: compile test fclean re
 
