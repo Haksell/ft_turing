@@ -3,12 +3,30 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (find, intercalate, isPrefixOf, isSuffixOf, partition, sort)
+import Data.List (isSuffixOf, sort)
 import Data.Map.Strict as Map (Map, fromList, insert, lookup, member, toList)
-import Data.Maybe (fromJust)
+import Data.Maybe (fromJust, fromMaybe)
 import Machine (Machine (..), Transition (..), buildMachine, printMachine)
-import System.Environment (getArgs, getProgName)
-import Text.Read (readMaybe)
+import Options.Applicative
+  ( Parser,
+    ReadM,
+    argument,
+    auto,
+    execParser,
+    fullDesc,
+    help,
+    helper,
+    info,
+    long,
+    metavar,
+    option,
+    optional,
+    readerError,
+    short,
+    str,
+    switch,
+    (<**>),
+  )
 
 type Tape = Map.Map Integer Char
 
@@ -77,63 +95,29 @@ openFileAndExecute jsonFilePath input debug maxSteps =
             Right _ -> prepareAndExecute machine input debug maxSteps
     else putStrLn "Error: the file path must end with '.json'."
 
-helpFlagAlternatives :: [String]
-helpFlagAlternatives = ["-h", "--help"]
+data CommandLineArgs = CommandLineArgs
+  { argMaxSteps :: Maybe Integer,
+    argQuiet :: Bool,
+    argJsonFilePath :: String,
+    argInput :: String
+  }
 
-quietFlagAlternatives :: [String]
-quietFlagAlternatives = ["-q", "--quiet"]
+positiveInteger :: ReadM Integer
+positiveInteger = do
+  value <- auto
+  if value > 0
+    then return value
+    else readerError "max-steps must be a positive integer"
 
-maxStepsFlagPrefix :: String
-maxStepsFlagPrefix = "--max-steps="
-
-allFlagAlternatives :: [String]
-allFlagAlternatives = helpFlagAlternatives ++ quietFlagAlternatives ++ [maxStepsFlagPrefix]
-
-hasFlag :: [String] -> [String] -> Bool
-hasFlag flags = any (`elem` flags)
-
-parseMaxSteps :: [String] -> Either Integer String
-parseMaxSteps flags =
-  case find (isPrefixOf maxStepsFlagPrefix) flags of
-    Nothing -> Left defaultMaxSteps
-    Just flag ->
-      let maxStepsStr = drop (length maxStepsFlagPrefix) flag
-          maxSteps = readMaybe maxStepsStr
-       in case maxSteps of
-            Just n | n >= 0 -> Left n
-            _ -> Right maxStepsStr
-
-printHelp :: IO ()
-printHelp = do
-  progName <- getProgName
-  putStrLn $ "usage: " ++ progName ++ " machine.json input [--quiet] [--max-steps=n]"
-  putStrLn "positional arguments:"
-  putStrLn "    machine.json    json description of the machine"
-  putStrLn "    input           input of the machine"
-  putStrLn "optional arguments:"
-  putStrLn "    -h, --help      show this help message and exit"
-  putStrLn "    -q, --quiet     only show final tape"
-  putStrLn "    --max-steps=n   maximum number of iterations"
+parseCommandLineArgs :: Parser CommandLineArgs
+parseCommandLineArgs =
+  CommandLineArgs
+    <$> optional (option positiveInteger (long "max-steps" <> short 'm' <> metavar "n" <> help "maximum number of iterations (must be positive)"))
+    <*> switch (long "quiet" <> short 'q' <> help "only show final tape")
+    <*> argument str (metavar "machine.json" <> help "json description of the machine")
+    <*> argument str (metavar "input" <> help "input of the machine")
 
 main :: IO ()
 main = do
-  args <- getArgs
-  let (flags, positional) = partition (isPrefixOf "-") args
-  case parseMaxSteps flags of
-    Left maxSteps ->
-      if hasFlag flags helpFlagAlternatives
-        then printHelp
-        else do
-          let unknownFlags = filter (\flag -> notElem flag allFlagAlternatives && not (maxStepsFlagPrefix `isPrefixOf` flag)) flags
-          if null unknownFlags
-            then case positional of
-              [jsonFilePath, input] -> openFileAndExecute jsonFilePath input (not $ hasFlag flags quietFlagAlternatives) maxSteps
-              _ -> do
-                putStrLn $ "expected 2 positional arguments, got " ++ show (length positional)
-                printHelp
-            else do
-              putStrLn $ "unknown flag" ++ (if length unknownFlags == 1 then "" else "s") ++ ": " ++ intercalate ", " unknownFlags
-              printHelp
-    Right maxStepsStr -> do
-      putStrLn $ "invalid " ++ maxStepsFlagPrefix ++ " argument: " ++ maxStepsStr
-      printHelp
+  args <- execParser $ info (parseCommandLineArgs <**> helper) fullDesc
+  openFileAndExecute (argJsonFilePath args) (argInput args) (not $ argQuiet args) (fromMaybe defaultMaxSteps $ argMaxSteps args)
