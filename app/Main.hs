@@ -3,7 +3,7 @@
 
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List (isPrefixOf, isSuffixOf, partition, sort)
+import Data.List (intercalate, isPrefixOf, isSuffixOf, partition, sort)
 import Data.Map.Strict as Map (Map, fromList, insert, lookup, member, toList)
 import Data.Maybe (fromJust)
 import Machine (Machine (..), Transition (..), buildMachine, printMachine)
@@ -30,14 +30,14 @@ createTape input = fromList $ enumerate input
 -- TODO: return start when we'll try to detect loops
 -- TODO: check (ChatGPT) (forgot to delete blanks at the end and start)
 stringifyTape :: Tape -> Integer -> Char -> String
-stringifyTape tape pos blankChar = "[" ++ concatMap showCell sortedCells ++ "]"
- where
-  sortedCells = sort (Map.toList tape)
-  filterBlanks = reverse . dropWhile (\(_, c) -> c == blankChar) . reverse . dropWhile (\(_, c) -> c == blankChar)
-  showCell (k, v)
-    | k == pos = "<" ++ [v] ++ ">"
-    | otherwise = [v]
-  nonBlankCells = filterBlanks sortedCells
+stringifyTape tape pos blankChar = "[" ++ concatMap showCell nonBlankCells ++ "]"
+  where
+    sortedCells = sort (Map.toList tape)
+    filterBlanks = reverse . dropWhile (\(_, c) -> c == blankChar) . reverse . dropWhile (\(_, c) -> c == blankChar)
+    showCell (k, v)
+      | k == pos = "<" ++ [v] ++ ">"
+      | otherwise = [v]
+    nonBlankCells = filterBlanks sortedCells
 
 -- Better functions names for execute, prepareAndExecute, openFileAndExecute
 
@@ -87,12 +87,32 @@ printHelp = do
   putStrLn "    -h, --help      show this help message and exit"
   putStrLn "    -q, --quiet     only show final tape"
 
+helpFlagAlternatives :: [String]
+helpFlagAlternatives = ["-h", "--help"]
+
+quietFlagAlternatives :: [String]
+quietFlagAlternatives = ["-q", "--quiet"]
+
+allFlagAlternatives :: [String]
+allFlagAlternatives = helpFlagAlternatives ++ quietFlagAlternatives
+
+hasFlag :: [String] -> [String] -> Bool
+hasFlag flags = any (`elem` flags)
+
 main :: IO ()
 main = do
   args <- getArgs
   let (flags, positional) = partition (isPrefixOf "-") args
-  if any (`elem` flags) ["-h", "--help"]
+  if hasFlag flags helpFlagAlternatives
     then printHelp
-    else case positional of
-      [jsonFilePath, input] -> openFileAndExecute jsonFilePath input (not $ any (`elem` flags) ["-q", "--quiet"]) 10000
-      _ -> printHelp
+    else do
+      let unknownFlags = filter (`notElem` allFlagAlternatives) flags
+      if null unknownFlags
+        then case positional of
+          [jsonFilePath, input] -> openFileAndExecute jsonFilePath input (not $ hasFlag flags quietFlagAlternatives) 10000
+          _ -> do
+            putStrLn $ "expected 2 positional arguments, got " ++ show (length positional)
+            printHelp
+        else do
+          putStrLn $ "unknown flag" ++ (if length unknownFlags == 1 then "" else "s") ++ ": " ++ intercalate ", " unknownFlags
+          printHelp

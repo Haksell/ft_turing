@@ -2,12 +2,12 @@
 
 module ParsedMachine where
 
-import Data.Aeson (
-  defaultOptions,
-  eitherDecode,
-  withObject,
-  (.:),
- )
+import Data.Aeson
+  ( defaultOptions,
+    eitherDecode,
+    withObject,
+    (.:),
+  )
 import Data.Aeson.Key (fromString)
 import Data.Aeson.Types (FromJSON (parseJSON), Options, Parser, genericParseJSON, rejectUnknownFields)
 import qualified Data.ByteString.Lazy as B
@@ -17,23 +17,23 @@ import qualified Data.Map as Map
 import GHC.Generics (Generic)
 
 data ParsedTransition = ParsedTransition
-  { read :: Char
-  , to_state :: String
-  , write :: Char
-  , action :: String
+  { read :: Char,
+    to_state :: String,
+    write :: Char,
+    action :: String
   }
   deriving (Show, Generic)
 
 type ParsedTransitions = Map.Map String [ParsedTransition]
 
 data ParsedMachine = ParsedMachine
-  { name :: String
-  , alphabet :: [Char]
-  , blank :: Char
-  , states :: [String]
-  , initial :: String
-  , finals :: [String]
-  , transitions :: ParsedTransitions
+  { name :: String,
+    alphabet :: [Char],
+    blank :: Char,
+    states :: [String],
+    initial :: String,
+    finals :: [String],
+    transitions :: ParsedTransitions
   }
   deriving (Show, Generic)
 
@@ -47,16 +47,16 @@ instance FromJSON ParsedMachine where
       <*> v .: fromString "initial"
       <*> v .: fromString "finals"
       <*> v .: fromString "transitions"
-   where
-    parseSingleChar :: String -> Parser Char
-    parseSingleChar [c] = return c
-    parseSingleChar _ = fail "Alphabet must contain single-character strings"
+    where
+      parseSingleChar :: String -> Parser Char
+      parseSingleChar [c] = return c
+      parseSingleChar _ = fail "Alphabet must contain single-character strings"
 
 instance FromJSON ParsedTransition where
   parseJSON = genericParseJSON $ aesonOptions "ParsedTransition"
 
 aesonOptions :: String -> Options
-aesonOptions _ = defaultOptions{rejectUnknownFields = True}
+aesonOptions _ = defaultOptions {rejectUnknownFields = True}
 
 parseMachine :: B.ByteString -> Either String ParsedMachine
 parseMachine bs = case eitherDecode bs of
@@ -95,17 +95,17 @@ areTransitionsValid machineTransitions machine =
    in case errors ++ finalStatesErrors of
         [] -> Right ()
         errs -> Left (unlines errs)
- where
-  validateStateTransitions :: (String, [ParsedTransition]) -> [String]
-  validateStateTransitions (state, ts) =
-    let readChars = map ParsedMachine.read ts
-        duplicates = filter (\c -> length (filter (== c) readChars) > 1) readChars
-     in if not (null duplicates)
-          then ["Ambiguous transitions: multiple reads of '" ++ duplicates ++ "' in state '" ++ state ++ "'"]
-          else lefts $ map (`isValidTransition` machine) ts
+  where
+    validateStateTransitions :: (String, [ParsedTransition]) -> [String]
+    validateStateTransitions (state, ts) =
+      let readChars = map ParsedMachine.read ts
+          duplicates = filter (\c -> length (filter (== c) readChars) > 1) readChars
+       in if not (null duplicates)
+            then ["Ambiguous transitions: multiple reads of '" ++ duplicates ++ "' in state '" ++ state ++ "'"]
+            else lefts $ map (`isValidTransition` machine) ts
 
-  validateFinalStatesCoverage :: ParsedTransitions -> [String] -> [String]
-  validateFinalStatesCoverage mt finalStates =
-    let toStates = concatMap (map to_state . snd) (Map.toList mt)
-        missingFinals = filter (`notElem` toStates) finalStates
-     in (["Final states not covered in any transition's to_state: " ++ unwords missingFinals | not (null missingFinals)])
+    validateFinalStatesCoverage :: ParsedTransitions -> [String] -> [String]
+    validateFinalStatesCoverage mt finalStates =
+      let toStates = concatMap (map to_state . snd) (Map.toList mt)
+          missingFinals = filter (`notElem` toStates) finalStates
+       in (["Final states not covered in any transition's to_state: " ++ unwords missingFinals | not (null missingFinals)])
