@@ -4,13 +4,19 @@ module Executor where
 
 import Control.Monad (when)
 import Data.List (sort)
-import Data.Map.Strict as Map (Map, insert, lookup, member, toList)
+import Data.Map.Strict as Map (Map, fromList, insert, lookup, member, toList)
 import Data.Maybe (fromJust, listToMaybe)
 import Data.Set qualified as Set
 import Machine (Machine (..), Transition (..))
 
 type CompleteState = (String, String, Maybe Integer)
 type Tape = Map.Map Integer Char
+
+enumerate :: [a] -> [(Integer, a)]
+enumerate = zip [0 ..]
+
+createTape :: String -> Tape
+createTape input = fromList $ enumerate input
 
 stringifyTapeWithPos :: Tape -> Integer -> Char -> (String, Maybe Integer)
 stringifyTapeWithPos tape pos blankChar =

@@ -50,9 +50,9 @@ test-suite parsing-tests
 
 test-suite execute-tests
   type:           exitcode-stdio-1.0
-  main-is:        unarySubTest_Main.hs
+  main-is:        executionResult_Main.hs
   hs-source-dirs: app tests
-  other-modules:  Main Machine ParsedMachine
+  other-modules:  Executor Machine ParsedMachine
   build-depends:
     , aeson
     , aeson-pretty
