@@ -1,0 +1,18 @@
+{
+    "name": "0²ⁿ_chars",
+    "alphabet": ["a", "b", "c", "d"],
+    "blank": "a",
+    "states": ["A", "B", "H"],
+    "initial": "A",
+    "finals": ["H"],
+    "transitions": {
+        "A": [
+            { "read": "b", "to_state": "B", "write": "b", "action": "RIGHT" },
+            { "read": "a", "to_state": "H", "write": "d", "action": "RIGHT" }
+        ],
+        "B": [
+            { "read": "b", "to_state": "A", "write": "b", "action": "RIGHT" },
+            { "read": "a", "to_state": "H", "write": "c", "action": "RIGHT" }
+        ]
+    }
+}
