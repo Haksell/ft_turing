@@ -336,7 +336,7 @@ executeMachineTest fileName (input, expectedTape, expectedMsg) = TestCase $ do
   case machineResult of
     Left errorMsg -> assertFailure errorMsg
     Right machine -> do
-      (finalTape, finalPos, finalMessage) <- execute False 10000 10000 machine (createTape input) (initial machine) 0 Set.empty
+      (finalTape, finalPos, finalMessage, _) <- execute False 10000 10000 machine (createTape input) (initial machine) 0 Set.empty
       let tapeString = stringifyTape finalTape finalPos $ blank machine
       assertEqual "Error final msg!" expectedMsg finalMessage
       assertEqual "Error final tape!" expectedTape tapeString
