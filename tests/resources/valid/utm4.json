@@ -4495,92 +4495,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_AaR": [
-            {
-                "read": ";",
-                "to_state": "apply_AaR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_AaR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_AaR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_AaR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_AaR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_AaR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_AaR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_AaR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_AaR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_AaR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_AaR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_AaR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_AaR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_AaR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_AbL": [
             {
                 "read": ";",
@@ -4663,92 +4577,6 @@
             {
                 "read": "!",
                 "to_state": "write_AbL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_AbR": [
-            {
-                "read": ";",
-                "to_state": "apply_AbR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_AbR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_AbR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_AbR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_AbR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_AbR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_AbR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_AbR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_AbR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_AbR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_AbR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_AbR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_AbR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_AbR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -4839,92 +4667,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_AcR": [
-            {
-                "read": ";",
-                "to_state": "apply_AcR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_AcR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_AcR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_AcR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_AcR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_AcR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_AcR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_AcR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_AcR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_AcR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_AcR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_AcR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_AcR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_AcR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_AdL": [
             {
                 "read": ";",
@@ -5007,92 +4749,6 @@
             {
                 "read": "!",
                 "to_state": "write_AdL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_AdR": [
-            {
-                "read": ";",
-                "to_state": "apply_AdR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_AdR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_AdR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_AdR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_AdR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_AdR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_AdR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_AdR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_AdR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_AdR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_AdR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_AdR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_AdR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_AdR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -5183,92 +4839,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_BaR": [
-            {
-                "read": ";",
-                "to_state": "apply_BaR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_BaR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_BaR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_BaR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_BaR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_BaR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_BaR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_BaR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_BaR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_BaR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_BaR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_BaR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_BaR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_BaR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_BbL": [
             {
                 "read": ";",
@@ -5351,92 +4921,6 @@
             {
                 "read": "!",
                 "to_state": "write_BbL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_BbR": [
-            {
-                "read": ";",
-                "to_state": "apply_BbR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_BbR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_BbR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_BbR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_BbR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_BbR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_BbR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_BbR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_BbR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_BbR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_BbR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_BbR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_BbR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_BbR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -5527,92 +5011,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_BcR": [
-            {
-                "read": ";",
-                "to_state": "apply_BcR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_BcR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_BcR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_BcR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_BcR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_BcR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_BcR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_BcR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_BcR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_BcR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_BcR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_BcR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_BcR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_BcR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_BdL": [
             {
                 "read": ";",
@@ -5695,92 +5093,6 @@
             {
                 "read": "!",
                 "to_state": "write_BdL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_BdR": [
-            {
-                "read": ";",
-                "to_state": "apply_BdR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_BdR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_BdR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_BdR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_BdR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_BdR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_BdR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_BdR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_BdR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_BdR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_BdR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_BdR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_BdR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_BdR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -5871,92 +5183,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_CaR": [
-            {
-                "read": ";",
-                "to_state": "apply_CaR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_CaR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_CaR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_CaR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_CaR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_CaR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_CaR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_CaR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_CaR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_CaR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_CaR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_CaR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_CaR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_CaR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_CbL": [
             {
                 "read": ";",
@@ -6039,92 +5265,6 @@
             {
                 "read": "!",
                 "to_state": "write_CbL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_CbR": [
-            {
-                "read": ";",
-                "to_state": "apply_CbR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_CbR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_CbR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_CbR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_CbR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_CbR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_CbR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_CbR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_CbR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_CbR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_CbR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_CbR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_CbR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_CbR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -6215,92 +5355,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_CcR": [
-            {
-                "read": ";",
-                "to_state": "apply_CcR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_CcR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_CcR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_CcR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_CcR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_CcR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_CcR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_CcR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_CcR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_CcR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_CcR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_CcR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_CcR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_CcR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_CdL": [
             {
                 "read": ";",
@@ -6383,92 +5437,6 @@
             {
                 "read": "!",
                 "to_state": "write_CdL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_CdR": [
-            {
-                "read": ";",
-                "to_state": "apply_CdR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_CdR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_CdR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_CdR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_CdR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_CdR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_CdR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_CdR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_CdR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_CdR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_CdR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_CdR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_CdR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_CdR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -6559,92 +5527,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_DaR": [
-            {
-                "read": ";",
-                "to_state": "apply_DaR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_DaR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_DaR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_DaR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_DaR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_DaR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_DaR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_DaR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_DaR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_DaR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_DaR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_DaR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_DaR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_DaR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_DbL": [
             {
                 "read": ";",
@@ -6727,92 +5609,6 @@
             {
                 "read": "!",
                 "to_state": "write_DbL",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
-        "apply_DbR": [
-            {
-                "read": ";",
-                "to_state": "apply_DbR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_DbR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_DbR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_DbR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_DbR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_DbR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_DbR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_DbR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_DbR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_DbR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_DbR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_DbR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_DbR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_DbR",
                 "write": "!",
                 "action": "RIGHT"
             }
@@ -6903,92 +5699,6 @@
                 "action": "RIGHT"
             }
         ],
-        "apply_DcR": [
-            {
-                "read": ";",
-                "to_state": "apply_DcR",
-                "write": ";",
-                "action": "RIGHT"
-            },
-            {
-                "read": "]",
-                "to_state": "apply_DcR",
-                "write": "]",
-                "action": "RIGHT"
-            },
-            {
-                "read": "A",
-                "to_state": "apply_DcR",
-                "write": "A",
-                "action": "RIGHT"
-            },
-            {
-                "read": "B",
-                "to_state": "apply_DcR",
-                "write": "B",
-                "action": "RIGHT"
-            },
-            {
-                "read": "C",
-                "to_state": "apply_DcR",
-                "write": "C",
-                "action": "RIGHT"
-            },
-            {
-                "read": "D",
-                "to_state": "apply_DcR",
-                "write": "D",
-                "action": "RIGHT"
-            },
-            {
-                "read": "a",
-                "to_state": "apply_DcR",
-                "write": "a",
-                "action": "RIGHT"
-            },
-            {
-                "read": "b",
-                "to_state": "apply_DcR",
-                "write": "b",
-                "action": "RIGHT"
-            },
-            {
-                "read": "c",
-                "to_state": "apply_DcR",
-                "write": "c",
-                "action": "RIGHT"
-            },
-            {
-                "read": "d",
-                "to_state": "apply_DcR",
-                "write": "d",
-                "action": "RIGHT"
-            },
-            {
-                "read": ".",
-                "to_state": "apply_DcR",
-                "write": ".",
-                "action": "RIGHT"
-            },
-            {
-                "read": "-",
-                "to_state": "apply_DcR",
-                "write": "-",
-                "action": "RIGHT"
-            },
-            {
-                "read": "+",
-                "to_state": "apply_DcR",
-                "write": "+",
-                "action": "RIGHT"
-            },
-            {
-                "read": "!",
-                "to_state": "write_DcR",
-                "write": "!",
-                "action": "RIGHT"
-            }
-        ],
         "apply_DdL": [
             {
                 "read": ";",
@@ -7071,6 +5781,1296 @@
             {
                 "read": "!",
                 "to_state": "write_DdL",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_AaR": [
+            {
+                "read": ";",
+                "to_state": "apply_AaR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_AaR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_AaR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_AaR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_AaR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_AaR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_AaR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_AaR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_AaR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_AaR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_AaR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_AaR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_AaR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_AaR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_AbR": [
+            {
+                "read": ";",
+                "to_state": "apply_AbR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_AbR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_AbR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_AbR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_AbR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_AbR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_AbR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_AbR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_AbR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_AbR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_AbR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_AbR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_AbR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_AbR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_AcR": [
+            {
+                "read": ";",
+                "to_state": "apply_AcR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_AcR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_AcR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_AcR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_AcR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_AcR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_AcR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_AcR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_AcR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_AcR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_AcR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_AcR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_AcR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_AcR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_AdR": [
+            {
+                "read": ";",
+                "to_state": "apply_AdR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_AdR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_AdR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_AdR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_AdR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_AdR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_AdR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_AdR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_AdR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_AdR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_AdR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_AdR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_AdR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_AdR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_BaR": [
+            {
+                "read": ";",
+                "to_state": "apply_BaR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_BaR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_BaR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_BaR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_BaR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_BaR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_BaR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_BaR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_BaR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_BaR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_BaR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_BaR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_BaR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_BaR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_BbR": [
+            {
+                "read": ";",
+                "to_state": "apply_BbR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_BbR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_BbR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_BbR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_BbR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_BbR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_BbR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_BbR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_BbR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_BbR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_BbR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_BbR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_BbR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_BbR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_BcR": [
+            {
+                "read": ";",
+                "to_state": "apply_BcR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_BcR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_BcR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_BcR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_BcR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_BcR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_BcR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_BcR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_BcR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_BcR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_BcR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_BcR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_BcR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_BcR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_BdR": [
+            {
+                "read": ";",
+                "to_state": "apply_BdR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_BdR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_BdR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_BdR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_BdR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_BdR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_BdR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_BdR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_BdR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_BdR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_BdR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_BdR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_BdR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_BdR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_CaR": [
+            {
+                "read": ";",
+                "to_state": "apply_CaR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_CaR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_CaR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_CaR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_CaR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_CaR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_CaR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_CaR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_CaR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_CaR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_CaR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_CaR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_CaR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_CaR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_CbR": [
+            {
+                "read": ";",
+                "to_state": "apply_CbR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_CbR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_CbR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_CbR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_CbR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_CbR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_CbR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_CbR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_CbR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_CbR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_CbR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_CbR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_CbR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_CbR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_CcR": [
+            {
+                "read": ";",
+                "to_state": "apply_CcR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_CcR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_CcR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_CcR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_CcR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_CcR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_CcR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_CcR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_CcR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_CcR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_CcR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_CcR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_CcR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_CcR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_CdR": [
+            {
+                "read": ";",
+                "to_state": "apply_CdR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_CdR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_CdR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_CdR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_CdR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_CdR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_CdR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_CdR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_CdR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_CdR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_CdR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_CdR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_CdR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_CdR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_DaR": [
+            {
+                "read": ";",
+                "to_state": "apply_DaR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_DaR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_DaR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_DaR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_DaR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_DaR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_DaR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_DaR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_DaR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_DaR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_DaR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_DaR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_DaR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_DaR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_DbR": [
+            {
+                "read": ";",
+                "to_state": "apply_DbR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_DbR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_DbR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_DbR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_DbR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_DbR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_DbR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_DbR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_DbR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_DbR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_DbR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_DbR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_DbR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_DbR",
+                "write": "!",
+                "action": "RIGHT"
+            }
+        ],
+        "apply_DcR": [
+            {
+                "read": ";",
+                "to_state": "apply_DcR",
+                "write": ";",
+                "action": "RIGHT"
+            },
+            {
+                "read": "]",
+                "to_state": "apply_DcR",
+                "write": "]",
+                "action": "RIGHT"
+            },
+            {
+                "read": "A",
+                "to_state": "apply_DcR",
+                "write": "A",
+                "action": "RIGHT"
+            },
+            {
+                "read": "B",
+                "to_state": "apply_DcR",
+                "write": "B",
+                "action": "RIGHT"
+            },
+            {
+                "read": "C",
+                "to_state": "apply_DcR",
+                "write": "C",
+                "action": "RIGHT"
+            },
+            {
+                "read": "D",
+                "to_state": "apply_DcR",
+                "write": "D",
+                "action": "RIGHT"
+            },
+            {
+                "read": "a",
+                "to_state": "apply_DcR",
+                "write": "a",
+                "action": "RIGHT"
+            },
+            {
+                "read": "b",
+                "to_state": "apply_DcR",
+                "write": "b",
+                "action": "RIGHT"
+            },
+            {
+                "read": "c",
+                "to_state": "apply_DcR",
+                "write": "c",
+                "action": "RIGHT"
+            },
+            {
+                "read": "d",
+                "to_state": "apply_DcR",
+                "write": "d",
+                "action": "RIGHT"
+            },
+            {
+                "read": ".",
+                "to_state": "apply_DcR",
+                "write": ".",
+                "action": "RIGHT"
+            },
+            {
+                "read": "-",
+                "to_state": "apply_DcR",
+                "write": "-",
+                "action": "RIGHT"
+            },
+            {
+                "read": "+",
+                "to_state": "apply_DcR",
+                "write": "+",
+                "action": "RIGHT"
+            },
+            {
+                "read": "!",
+                "to_state": "write_DcR",
                 "write": "!",
                 "action": "RIGHT"
             }
