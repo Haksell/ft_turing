@@ -498,7 +498,7 @@ tests =
       ++ (map (TestLabel "binary_and" . executeMachineTest (validJsonBasePath </> "binary_and.json")) binaryAndTestCases)
       ++ (map (TestLabel "broken" . executeMachineTest (ambiguousJsonBasePath </> "arrows.json")) brokenTestCases)
       ++ (map (TestLabel "infinite" . executeMachineTest (ambiguousJsonBasePath </> "arrows.json")) infiniteTestCases)
-      ++ (map (TestLabel "universal_turing_machine" . executeMachineTest (validJsonBasePath </> "universal_turing_machine.json")) universalTuringMachineTestCases)
+      ++ (map (TestLabel "universal_turing_machine" . executeMachineTest (validJsonBasePath </> "utm4.json")) universalTuringMachineTestCases)
 
 main :: IO ()
 main = do
