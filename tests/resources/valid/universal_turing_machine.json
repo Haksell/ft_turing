@@ -1,23 +1,6 @@
 {
     "name": "universal_turing_machine",
-    "alphabet": [
-        " ",
-        "[",
-        "]",
-        ";",
-        ".",
-        "!",
-        "+",
-        "-",
-        "A",
-        "B",
-        "C",
-        "D",
-        "a",
-        "b",
-        "c",
-        "d"
-    ],
+    "alphabet": [" ", "[", "]", ";", ".", "!", "+", "-", "A", "B", "C", "D", "a", "b", "c", "d"],
     "blank": " ",
     "states": [
         "start",
@@ -225,14 +208,10 @@
         "move_right_Dd",
         "HALT",
         "UNEXPECTED_TRANSITION",
-        "TODO_NEG_POS"
+        "NEG_POS"
     ],
     "initial": "start",
-    "finals": [
-        "HALT",
-        "UNEXPECTED_TRANSITION",
-        "TODO_NEG_POS"
-    ],
+    "finals": ["HALT", "UNEXPECTED_TRANSITION", "NEG_POS"],
     "transitions": {
         "start": [
             {
@@ -7727,7 +7706,7 @@
             },
             {
                 "read": "]",
-                "to_state": "TODO_NEG_POS",
+                "to_state": "NEG_POS",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7765,7 +7744,7 @@
             },
             {
                 "read": "]",
-                "to_state": "TODO_NEG_POS",
+                "to_state": "NEG_POS",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7803,7 +7782,7 @@
             },
             {
                 "read": "]",
-                "to_state": "TODO_NEG_POS",
+                "to_state": "NEG_POS",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7841,7 +7820,7 @@
             },
             {
                 "read": "]",
-                "to_state": "TODO_NEG_POS",
+                "to_state": "NEG_POS",
                 "write": "]",
                 "action": "RIGHT"
             }

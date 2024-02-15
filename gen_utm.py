@@ -7,8 +7,7 @@ UPP = list(string.ascii_uppercase[:N])
 PAIRS = [X + x for X in UPP for x in LOW]
 DIRS = ["L", "R"]
 # TODO: only TRIPLETS
-TRIPLETS_SEPARATED = [p + d for d in DIRS for p in PAIRS]
-TRIPLETS_TOGETHER = [p + d for p in PAIRS for d in DIRS]
+TRIPLETS = [p + d for d in DIRS for p in PAIRS]
 
 json.dump(
     {
@@ -29,17 +28,17 @@ json.dump(
             *[f"finish_{s}" for s in LOW],
             *[f"get_new_char_{s}" for s in UPP],
             *[f"get_new_dir_{s}" for s in PAIRS],
-            *[f"apply_{s}" for s in TRIPLETS_SEPARATED],
-            *[f"write_{s}" for s in TRIPLETS_SEPARATED],
+            *[f"apply_{s}" for s in TRIPLETS],
+            *[f"write_{s}" for s in TRIPLETS],
             *[f"move_left_{s}" for s in UPP],
             *[f"move_left_{s}" for s in PAIRS],
             *[f"move_right_{s}" for s in PAIRS],
             "HALT",
             "UNEXPECTED_TRANSITION",
-            "TODO_NEG_POS",
+            "NEG_POS",
         ],
         "initial": "start",
-        "finals": ["HALT", "UNEXPECTED_TRANSITION", "TODO_NEG_POS"],
+        "finals": ["HALT", "UNEXPECTED_TRANSITION", "NEG_POS"],
         "transitions": {
             "start": [
                 {"read": s, "to_state": f"state_{s}", "write": s, "action": "RIGHT"}
@@ -305,7 +304,7 @@ json.dump(
                         "action": "RIGHT",
                     },
                 ]
-                for s1 in TRIPLETS_TOGETHER
+                for s1 in TRIPLETS
             },
             **{
                 f"write_{s1}L": [
@@ -340,7 +339,7 @@ json.dump(
                     },
                     {
                         "read": "]",
-                        "to_state": "TODO_NEG_POS",
+                        "to_state": "NEG_POS",
                         "write": "]",
                         "action": "RIGHT",
                     },
