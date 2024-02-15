@@ -28,6 +28,8 @@ executable ft_turing
     , optparse-applicative
     , text
     , unordered-containers
+    , random
+    , random-shuffle
 
 test-suite parsing-tests
   type:           exitcode-stdio-1.0

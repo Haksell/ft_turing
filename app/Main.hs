@@ -4,53 +4,43 @@
 import Complexity (calculateComplexity)
 import Control.Monad (when)
 import Data.ByteString.Lazy qualified as BL
-import Data.List
-  ( intercalate,
-    isSuffixOf,
-    nub,
-    sort,
-  )
-import Data.Maybe (fromMaybe, isJust)
+import Data.List (
+  intercalate,
+  isSuffixOf,
+ )
+import Data.Maybe (fromMaybe)
 import Data.Set qualified as Set
 import Executor (createTape, execute, stringifyTape)
-import Machine (Machine (..), buildMachine, printMachine)
-import Options.Applicative
-  ( Parser,
-    ReadM,
-    argument,
-    auto,
-    execParser,
-    fullDesc,
-    help,
-    helper,
-    info,
-    long,
-    metavar,
-    option,
-    optional,
-    readerError,
-    short,
-    str,
-    switch,
-    (<**>),
-  )
+import Machine (Machine (..), buildMachine, isValidInput, printMachine)
+import Options.Applicative (
+  Parser,
+  ReadM,
+  argument,
+  auto,
+  execParser,
+  fullDesc,
+  help,
+  helper,
+  info,
+  long,
+  metavar,
+  option,
+  optional,
+  readerError,
+  short,
+  str,
+  switch,
+  (<**>),
+ )
 import Options.Applicative.Builder (strOption)
 
 defaultMaxSteps :: Integer
 defaultMaxSteps = 100000
 
-isValidInput :: [Char] -> Char -> String -> Maybe String
-isValidInput machineAlphabet machineBlank input
-  | machineBlank `elem` input = Just "Input contains the blank symbol"
-  | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) (sort $ nub unknownChars))
-  | otherwise = Nothing
-  where
-    unknownChars = filter (`notElem` machineAlphabet) input
-
 ftTuring :: Machine -> String -> Bool -> Integer -> IO ()
 ftTuring machine input debug maxSteps = do
   when debug $ putStrLn $ printMachine machine
-  (finalTape, finalPos, finalMessage) <-
+  (finalTape, finalPos, finalMessage, _stepsCount) <-
     execute
       debug
       maxSteps
@@ -63,11 +53,11 @@ ftTuring machine input debug maxSteps = do
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
-  { argJsonFilePath :: String,
-    argInput :: Maybe String,
-    argQuiet :: Bool,
-    argComplex :: Maybe String,
-    argMaxSteps :: Maybe Integer
+  { argJsonFilePath :: String
+  , argInput :: Maybe String
+  , argQuiet :: Bool
+  , argComplex :: Maybe String
+  , argMaxSteps :: Maybe Integer
   }
 
 positiveInteger :: ReadM Integer
@@ -77,13 +67,23 @@ positiveInteger = do
     then return value
     else readerError "max-steps must be a positive integer"
 
+complexityArgDesctiption :: String
+complexityArgDesctiption =
+  intercalate
+    "\n"
+    [ "complexity pattern to match. \"[]\" characters is reserved for the patter matching."
+    , "Do not use the reserved characters in the machine alphabet."
+    , "Such pattern for unary_add algo: \"[1]+[1]=\" translates to:"
+    , "\"[Any number of 1s] + [Any number of 1s] =\", then to input like \"111+111=\", \"11111+11111=\", etc."
+    ]
+
 parseCommandLineArgs :: Parser CommandLineArgs
 parseCommandLineArgs =
   CommandLineArgs
     <$> argument str (metavar "machine.json" <> help "json description of the machine")
     <*> optional (argument str (metavar "input" <> help "input of the machine"))
     <*> switch (long "quiet" <> short 'q' <> help "only show final tape")
-    <*> optional (strOption (long "complexity" <> metavar "pattern" <> short 'c' <> help "complexity pattern to match"))
+    <*> optional (strOption (long "complexity" <> metavar "pattern" <> short 'c' <> help complexityArgDesctiption))
     <*> optional (option positiveInteger (long "max-steps" <> short 'm' <> metavar "n" <> help "maximum number of iterations (must be positive)"))
 
 main :: IO ()
@@ -100,9 +100,9 @@ main = do
       case buildMachine jsonFileContents of
         Left parsingError -> putStrLn parsingError
         Right machine ->
-          if isJust complexity
-            then calculateComplexity
-            else case input of
+          case complexity of
+            Just pattern -> calculateComplexity pattern machine
+            Nothing -> case input of
               Nothing -> putStrLn "Error: input is required."
               Just actualInput ->
                 case isValidInput (alphabet machine) (blank machine) actualInput of

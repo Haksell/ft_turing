@@ -3,7 +3,7 @@
 module Machine where
 
 import qualified Data.ByteString.Lazy as B
-import Data.List (intercalate)
+import Data.List (intercalate, nub, sort)
 import qualified Data.Map as Map
 import GHC.Generics (Generic)
 import ParsedMachine
@@ -40,6 +40,14 @@ data Machine = Machine
     transitions :: Transitions
   }
   deriving (Show, Generic)
+
+isValidInput :: [Char] -> Char -> String -> Maybe String
+isValidInput machineAlphabet machineBlank input
+  | machineBlank `elem` input = Just "Input contains the blank symbol"
+  | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) (sort $ nub unknownChars))
+  | otherwise = Nothing
+ where
+  unknownChars = filter (`notElem` machineAlphabet) input
 
 buildMachine :: B.ByteString -> Either String Machine
 buildMachine bs = case parseMachine bs of

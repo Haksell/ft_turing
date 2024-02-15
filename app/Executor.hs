@@ -34,14 +34,14 @@ stringifyTapeWithPos tape pos blankChar =
 stringifyTape :: Tape -> Integer -> Char -> String
 stringifyTape tape pos blankChar = fst $ stringifyTapeWithPos tape pos blankChar
 
-execute :: Bool -> Integer -> Integer -> Machine -> Tape -> String -> Integer -> Set.Set CompleteState -> IO (Tape, Integer, String)
+execute :: Bool -> Integer -> Integer -> Machine -> Tape -> String -> Integer -> Set.Set CompleteState -> IO (Tape, Integer, String, Integer)
 execute debug maxSteps remainingSteps machine tape state pos visitedStates
-  | state `elem` finals machine = return (tape, pos, "Final state: " ++ state)
-  | remainingSteps == 0 = return (tape, pos, "No final state found after " ++ show maxSteps ++ " steps")
-  | Set.member completeState visitedStates = return (tape, pos, "Infinite loop detected at state: " ++ state)
+  | state `elem` finals machine = return (tape, pos, "Final state: " ++ state, maxSteps - remainingSteps)
+  | remainingSteps == 0 = return (tape, pos, "No final state found after " ++ show maxSteps ++ " steps", maxSteps - remainingSteps)
+  | Set.member completeState visitedStates = return (tape, pos, "Infinite loop detected at state: " ++ state, maxSteps - remainingSteps)
   | otherwise = do
       case Map.lookup (state, cell) $ transitions machine of
-        Nothing -> return (newTape, pos, "Unexpected transition: (" ++ state ++ ", " ++ [cell] ++ ")")
+        Nothing -> return (newTape, pos, "Unexpected transition: (" ++ state ++ ", " ++ [cell] ++ ")", maxSteps - remainingSteps)
         Just tv -> do
           when debug $
             putStrLn $
