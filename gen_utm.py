@@ -248,34 +248,13 @@ json.dump(
                 ]
                 for s1 in LOW
             },
-            "finish_a": [
-                {"read": " ", "to_state": "HALT", "write": "a", "action": "RIGHT"},
-                {"read": "a", "to_state": "HALT", "write": "a", "action": "RIGHT"},
-                {"read": "b", "to_state": "HALT", "write": "a", "action": "RIGHT"},
-                {"read": "c", "to_state": "HALT", "write": "a", "action": "RIGHT"},
-                {"read": "d", "to_state": "HALT", "write": "a", "action": "RIGHT"},
-            ],
-            "finish_b": [
-                {"read": " ", "to_state": "HALT", "write": "b", "action": "RIGHT"},
-                {"read": "a", "to_state": "HALT", "write": "b", "action": "RIGHT"},
-                {"read": "b", "to_state": "HALT", "write": "b", "action": "RIGHT"},
-                {"read": "c", "to_state": "HALT", "write": "b", "action": "RIGHT"},
-                {"read": "d", "to_state": "HALT", "write": "b", "action": "RIGHT"},
-            ],
-            "finish_c": [
-                {"read": " ", "to_state": "HALT", "write": "c", "action": "RIGHT"},
-                {"read": "a", "to_state": "HALT", "write": "c", "action": "RIGHT"},
-                {"read": "b", "to_state": "HALT", "write": "c", "action": "RIGHT"},
-                {"read": "c", "to_state": "HALT", "write": "c", "action": "RIGHT"},
-                {"read": "d", "to_state": "HALT", "write": "c", "action": "RIGHT"},
-            ],
-            "finish_d": [
-                {"read": " ", "to_state": "HALT", "write": "d", "action": "RIGHT"},
-                {"read": "a", "to_state": "HALT", "write": "d", "action": "RIGHT"},
-                {"read": "b", "to_state": "HALT", "write": "d", "action": "RIGHT"},
-                {"read": "c", "to_state": "HALT", "write": "d", "action": "RIGHT"},
-                {"read": "d", "to_state": "HALT", "write": "d", "action": "RIGHT"},
-            ],
+            **{
+                f"finish_{s1}": [
+                    {"read": s2, "to_state": "HALT", "write": s1, "action": "RIGHT"}
+                    for s2 in [" "] + LOW
+                ]
+                for s1 in LOW
+            },
             "get_new_char_A": [
                 {
                     "read": "a",
