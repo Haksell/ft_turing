@@ -20,6 +20,7 @@
 -   [x] Detected too many steps (hardcoded)
 -   [x] `--max_steps=n` argument (check >= 0)
 -   [x] Detect infinite loops (axbrisse)
+-   [ ] Catch-all rule with `*`
 -   [ ] Understanding bonus (axbrisse)
 -   [ ] Test machine loop (amyroshn) (cabal run -v0 exe:ft_turing -- tests/resources/ambiguous/buggy_and.json '1001&0101=')
 -   [ ] Valid machine tester (amyroshn)
