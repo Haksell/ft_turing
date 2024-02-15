@@ -321,158 +321,32 @@ json.dump(
                 ]
                 for s1 in PAIRS
             },
-            "move_left_A": [
-                {
-                    "read": "a",
-                    "to_state": "move_left_Aa",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "b",
-                    "to_state": "move_left_Ab",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "c",
-                    "to_state": "move_left_Ac",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "d",
-                    "to_state": "move_left_Ad",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "!",
-                    "to_state": "move_left_A",
-                    "write": "!",
-                    "action": "LEFT",
-                },
-                {
-                    "read": "]",
-                    "to_state": "TODO_NEG_POS",
-                    "write": "]",
-                    "action": "RIGHT",
-                },
-            ],
-            "move_left_B": [
-                {
-                    "read": "a",
-                    "to_state": "move_left_Ba",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "b",
-                    "to_state": "move_left_Bb",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "c",
-                    "to_state": "move_left_Bc",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "d",
-                    "to_state": "move_left_Bd",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "!",
-                    "to_state": "move_left_B",
-                    "write": "!",
-                    "action": "LEFT",
-                },
-                {
-                    "read": "]",
-                    "to_state": "TODO_NEG_POS",
-                    "write": "]",
-                    "action": "RIGHT",
-                },
-            ],
-            "move_left_C": [
-                {
-                    "read": "a",
-                    "to_state": "move_left_Ca",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "b",
-                    "to_state": "move_left_Cb",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "c",
-                    "to_state": "move_left_Cc",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "d",
-                    "to_state": "move_left_Cd",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "!",
-                    "to_state": "move_left_C",
-                    "write": "!",
-                    "action": "LEFT",
-                },
-                {
-                    "read": "]",
-                    "to_state": "TODO_NEG_POS",
-                    "write": "]",
-                    "action": "RIGHT",
-                },
-            ],
-            "move_left_D": [
-                {
-                    "read": "a",
-                    "to_state": "move_left_Da",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "b",
-                    "to_state": "move_left_Db",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "c",
-                    "to_state": "move_left_Dc",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "d",
-                    "to_state": "move_left_Dd",
-                    "write": "!",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "!",
-                    "to_state": "move_left_D",
-                    "write": "!",
-                    "action": "LEFT",
-                },
-                {
-                    "read": "]",
-                    "to_state": "TODO_NEG_POS",
-                    "write": "]",
-                    "action": "RIGHT",
-                },
-            ],
+            **{
+                f"move_left_{s1}": [
+                    *[
+                        {
+                            "read": s2,
+                            "to_state": f"move_left_{s1}{s2}",
+                            "write": "!",
+                            "action": "RIGHT",
+                        }
+                        for s2 in LOW
+                    ],
+                    {
+                        "read": "!",
+                        "to_state": f"move_left_{s1}",
+                        "write": "!",
+                        "action": "LEFT",
+                    },
+                    {
+                        "read": "]",
+                        "to_state": "TODO_NEG_POS",
+                        "write": "]",
+                        "action": "RIGHT",
+                    },
+                ]
+                for s1 in UPP
+            },
             "move_left_Aa": [
                 {"read": "!", "to_state": "state_A", "write": "a", "action": "LEFT"}
             ],
