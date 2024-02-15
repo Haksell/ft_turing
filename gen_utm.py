@@ -267,70 +267,23 @@ json.dump(
                 ]
                 for s1 in UPP
             },
-            "get_new_dir_Aa": [
-                {"read": "-", "to_state": "apply_AaL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_AaR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Ab": [
-                {"read": "-", "to_state": "apply_AbL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_AbR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Ac": [
-                {"read": "-", "to_state": "apply_AcL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_AcR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Ad": [
-                {"read": "-", "to_state": "apply_AdL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_AdR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Ba": [
-                {"read": "-", "to_state": "apply_BaL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_BaR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Bb": [
-                {"read": "-", "to_state": "apply_BbL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_BbR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Bc": [
-                {"read": "-", "to_state": "apply_BcL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_BcR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Bd": [
-                {"read": "-", "to_state": "apply_BdL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_BdR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Ca": [
-                {"read": "-", "to_state": "apply_CaL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_CaR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Cb": [
-                {"read": "-", "to_state": "apply_CbL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_CbR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Cc": [
-                {"read": "-", "to_state": "apply_CcL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_CcR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Cd": [
-                {"read": "-", "to_state": "apply_CdL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_CdR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Da": [
-                {"read": "-", "to_state": "apply_DaL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_DaR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Db": [
-                {"read": "-", "to_state": "apply_DbL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_DbR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Dc": [
-                {"read": "-", "to_state": "apply_DcL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_DcR", "write": "+", "action": "RIGHT"},
-            ],
-            "get_new_dir_Dd": [
-                {"read": "-", "to_state": "apply_DdL", "write": "-", "action": "RIGHT"},
-                {"read": "+", "to_state": "apply_DdR", "write": "+", "action": "RIGHT"},
-            ],
+            **{
+                f"get_new_dir_{s1}": [
+                    {
+                        "read": "-",
+                        "to_state": f"apply_{s1}L",
+                        "write": "-",
+                        "action": "RIGHT",
+                    },
+                    {
+                        "read": "+",
+                        "to_state": f"apply_{s1}R",
+                        "write": "+",
+                        "action": "RIGHT",
+                    },
+                ]
+                for s1 in PAIRS
+            },
             "apply_AaL": [
                 {"read": ";", "to_state": "apply_AaL", "write": ";", "action": "RIGHT"},
                 {"read": "]", "to_state": "apply_AaL", "write": "]", "action": "RIGHT"},
