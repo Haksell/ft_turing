@@ -35,7 +35,7 @@ import Options.Applicative (
 import Options.Applicative.Builder (strOption)
 
 defaultMaxSteps :: Integer
-defaultMaxSteps = 10000
+defaultMaxSteps = 100000
 
 ftTuring :: Machine -> String -> Bool -> Integer -> IO ()
 ftTuring machine input debug maxSteps = do
@@ -53,11 +53,11 @@ ftTuring machine input debug maxSteps = do
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
-  { argJsonFilePath :: String
-  , argInput :: Maybe String
-  , argQuiet :: Bool
-  , argComplex :: Maybe String
-  , argMaxSteps :: Maybe Integer
+  { argJsonFilePath :: String,
+    argInput :: Maybe String,
+    argQuiet :: Bool,
+    argComplex :: Maybe String,
+    argMaxSteps :: Maybe Integer
   }
 
 positiveInteger :: ReadM Integer

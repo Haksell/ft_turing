@@ -1,6 +1,8 @@
 ### universal_turing_machine.json
 
-cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'P#P1P1RP+E1RE1E1RE=D.LD1H.R#11+111='
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'`
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'`
 
 ### binary_and.json same size
 

@@ -101,11 +101,11 @@ areTransitionsValid machineTransitions machine =
       if state `notElem` states machine
         then ["State '" ++ state ++ "' is not in the list of states."]
         else
-      let readChars = map ParsedMachine.read ts
-          duplicates = filter (\c -> length (filter (== c) readChars) > 1) readChars
-       in if not (null duplicates)
-            then ["Ambiguous transitions: multiple reads of '" ++ duplicates ++ "' in state '" ++ state ++ "'"]
-            else lefts $ map (`isValidTransition` machine) ts
+          let readChars = map ParsedMachine.read ts
+              duplicates = filter (\c -> length (filter (== c) readChars) > 1) readChars
+           in if not (null duplicates)
+                then ["Ambiguous transitions: multiple reads of '" ++ duplicates ++ "' in state '" ++ state ++ "'"]
+                else lefts $ map (`isValidTransition` machine) ts
 
     validateFinalStatesCoverage :: ParsedTransitions -> [String] -> [String]
     validateFinalStatesCoverage mt finalStates =

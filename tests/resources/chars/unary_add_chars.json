@@ -1,0 +1,19 @@
+{
+    "name": "unary_add_chars",
+    "alphabet": ["a", "b", "c", "d"],
+    "blank": "a",
+    "states": ["A", "B", "C", "HALT"],
+    "initial": "A",
+    "finals": ["HALT"],
+    "transitions": {
+        "A": [
+            { "read": "b", "to_state": "A", "write": "b", "action": "RIGHT" },
+            { "read": "c", "to_state": "B", "write": "b", "action": "RIGHT" }
+        ],
+        "B": [
+            { "read": "b", "to_state": "B", "write": "b", "action": "RIGHT" },
+            { "read": "d", "to_state": "C", "write": "a", "action": "LEFT" }
+        ],
+        "C": [{ "read": "b", "to_state": "HALT", "write": "a", "action": "RIGHT" }]
+    }
+}

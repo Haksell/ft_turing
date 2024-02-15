@@ -20,13 +20,16 @@
 -   [x] Detected too many steps (hardcoded)
 -   [x] `--max_steps=n` argument (check >= 0)
 -   [x] Detect infinite loops (axbrisse)
--   [ ] Understanding bonus (axbrisse)
+-   [ ] 4-state 4-chars UTM (axbrisse)
+-   [ ] Script to transform into 26-state 26-chars (axbrisse)
+-   [ ] Complexity (mostly amyroshn for now)
 -   [ ] Test machine loop (amyroshn) (cabal run -v0 exe:ft_turing -- tests/resources/ambiguous/buggy_and.json '1001&0101=')
 -   [ ] Valid machine tester (amyroshn)
 -   [ ] Check unknown state as transition keys (amyroshn)
 -   [ ] After replacing alphabet type with [char], we do not reject unexpected fields anymore :(, (amyroshn)
 -   [ ] Test parsing (files/valid and files/invalid folders + chmod 000 + file that doesn't exist)
 -   [ ] Test alias.json -> /dev/random
+-   [ ] Put `gen_utm.py` somewhere else (axbrisse)
 
 ### Mandatory machines
 
