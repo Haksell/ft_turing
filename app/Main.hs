@@ -37,7 +37,7 @@ import Options.Applicative
 import Options.Applicative.Builder (strOption)
 
 defaultMaxSteps :: Integer
-defaultMaxSteps = 10000
+defaultMaxSteps = 100000
 
 isValidInput :: [Char] -> Char -> String -> Maybe String
 isValidInput machineAlphabet machineBlank input
