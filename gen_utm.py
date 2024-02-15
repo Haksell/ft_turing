@@ -5,7 +5,10 @@ N = 4
 LOW = list(string.ascii_lowercase[:N])
 UPP = list(string.ascii_uppercase[:N])
 PAIRS = [X + x for X in UPP for x in LOW]
-TRIPLETS = [p + d for d in "LR" for p in PAIRS]
+DIRS = ["L", "R"]
+# TODO: only TRIPLETS
+TRIPLETS_SEPARATED = [p + d for d in DIRS for p in PAIRS]
+TRIPLETS_TOGETHER = [p + d for p in PAIRS for d in DIRS]
 
 json.dump(
     {
@@ -26,8 +29,8 @@ json.dump(
             *[f"finish_{s}" for s in LOW],
             *[f"get_new_char_{s}" for s in UPP],
             *[f"get_new_dir_{s}" for s in PAIRS],
-            *[f"apply_{s}" for s in TRIPLETS],
-            *[f"write_{s}" for s in TRIPLETS],
+            *[f"apply_{s}" for s in TRIPLETS_SEPARATED],
+            *[f"write_{s}" for s in TRIPLETS_SEPARATED],
             *[f"move_left_{s}" for s in UPP],
             *[f"move_left_{s}" for s in PAIRS],
             *[f"move_right_{s}" for s in PAIRS],
