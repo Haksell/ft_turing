@@ -53,11 +53,11 @@ ftTuring machine input debug maxSteps = do
   putStrLn $ stringifyTape finalTape finalPos (blank machine) ++ " " ++ finalMessage
 
 data CommandLineArgs = CommandLineArgs
-  { argJsonFilePath :: String,
-    argInput :: Maybe String,
-    argQuiet :: Bool,
-    argComplex :: Maybe String,
-    argMaxSteps :: Maybe Integer
+  { argJsonFilePath :: String
+  , argInput :: Maybe String
+  , argQuiet :: Bool
+  , argComplex :: Maybe String
+  , argMaxSteps :: Maybe Integer
   }
 
 positiveInteger :: ReadM Integer
@@ -71,10 +71,10 @@ complexityArgDesctiption :: String
 complexityArgDesctiption =
   intercalate
     "\n"
-    [ "complexity pattern to match. \"@\" character is reserved for the patter matching."
-    , "Do not use the reserved character in the machine alphabet."
-    , "Such pattern for unary_add algo: \"1@+1@=\" translates to:"
-    , "\"[Any number of 1s] + [Any number of 1s] =\", then to input like \"111+111=\", \"11+1111111111=\", etc."
+    [ "complexity pattern to match. \"[]\" characters is reserved for the patter matching."
+    , "Do not use the reserved characters in the machine alphabet."
+    , "Such pattern for unary_add algo: \"[1]+[1]=\" translates to:"
+    , "\"[Any number of 1s] + [Any number of 1s] =\", then to input like \"111+111=\", \"11111+11111=\", etc."
     ]
 
 parseCommandLineArgs :: Parser CommandLineArgs
