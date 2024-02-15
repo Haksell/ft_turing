@@ -370,54 +370,17 @@ json.dump(
                 ]
                 for s1 in PAIRS
             },
-            "move_right_Aa": [
-                {"read": "!", "to_state": "state_A", "write": "a", "action": "RIGHT"}
-            ],
-            "move_right_Ab": [
-                {"read": "!", "to_state": "state_A", "write": "b", "action": "RIGHT"}
-            ],
-            "move_right_Ac": [
-                {"read": "!", "to_state": "state_A", "write": "c", "action": "RIGHT"}
-            ],
-            "move_right_Ad": [
-                {"read": "!", "to_state": "state_A", "write": "d", "action": "RIGHT"}
-            ],
-            "move_right_Ba": [
-                {"read": "!", "to_state": "state_B", "write": "a", "action": "RIGHT"}
-            ],
-            "move_right_Bb": [
-                {"read": "!", "to_state": "state_B", "write": "b", "action": "RIGHT"}
-            ],
-            "move_right_Bc": [
-                {"read": "!", "to_state": "state_B", "write": "c", "action": "RIGHT"}
-            ],
-            "move_right_Bd": [
-                {"read": "!", "to_state": "state_B", "write": "d", "action": "RIGHT"}
-            ],
-            "move_right_Ca": [
-                {"read": "!", "to_state": "state_C", "write": "a", "action": "RIGHT"}
-            ],
-            "move_right_Cb": [
-                {"read": "!", "to_state": "state_C", "write": "b", "action": "RIGHT"}
-            ],
-            "move_right_Cc": [
-                {"read": "!", "to_state": "state_C", "write": "c", "action": "RIGHT"}
-            ],
-            "move_right_Cd": [
-                {"read": "!", "to_state": "state_C", "write": "d", "action": "RIGHT"}
-            ],
-            "move_right_Da": [
-                {"read": "!", "to_state": "state_D", "write": "a", "action": "RIGHT"}
-            ],
-            "move_right_Db": [
-                {"read": "!", "to_state": "state_D", "write": "b", "action": "RIGHT"}
-            ],
-            "move_right_Dc": [
-                {"read": "!", "to_state": "state_D", "write": "c", "action": "RIGHT"}
-            ],
-            "move_right_Dd": [
-                {"read": "!", "to_state": "state_D", "write": "d", "action": "RIGHT"}
-            ],
+            **{
+                f"move_right_{s}": [
+                    {
+                        "read": "!",
+                        "to_state": f"state_{s[0]}",
+                        "write": s[1],
+                        "action": "RIGHT",
+                    }
+                ]
+                for s in PAIRS
+            },
         },
     },
     open("okok.json", "w"),
