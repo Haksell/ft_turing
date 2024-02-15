@@ -255,32 +255,18 @@ json.dump(
                 ]
                 for s1 in LOW
             },
-            "get_new_char_A": [
-                {
-                    "read": "a",
-                    "to_state": "get_new_dir_Aa",
-                    "write": "a",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "b",
-                    "to_state": "get_new_dir_Ab",
-                    "write": "b",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "c",
-                    "to_state": "get_new_dir_Ac",
-                    "write": "c",
-                    "action": "RIGHT",
-                },
-                {
-                    "read": "d",
-                    "to_state": "get_new_dir_Ad",
-                    "write": "d",
-                    "action": "RIGHT",
-                },
-            ],
+            **{
+                f"get_new_char_{s1}": [
+                    {
+                        "read": s2,
+                        "to_state": f"get_new_dir_{s1}{s2}",
+                        "write": s2,
+                        "action": "RIGHT",
+                    }
+                    for s2 in LOW
+                ]
+                for s1 in UPP
+            },
             "get_new_char_B": [
                 {
                     "read": "a",
