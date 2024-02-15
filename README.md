@@ -2,6 +2,12 @@
 
 `cabal run -v0 exe:ft_turing -- tests/resources/valid/unary_mul.json '111*11='`
 
+### universal_turing_machine.json
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'`
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'`
+
 ### TODO
 
 -   [x] Parse arguments
