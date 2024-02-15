@@ -1,24 +1,6 @@
 {
     "name": "universal_turing_machine",
-    "alphabet": [
-        " ",
-        "[",
-        "]",
-        ";",
-        ".",
-        "H",
-        "!",
-        "R",
-        "L",
-        "A",
-        "B",
-        "C",
-        "D",
-        "a",
-        "b",
-        "c",
-        "d"
-    ],
+    "alphabet": [" ", "[", "]", ";", "H", "!", "R", "L", "A", "B", "C", "D", "a", "b", "c", "d"],
     "blank": " ",
     "states": [
         "start",
