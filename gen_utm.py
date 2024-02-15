@@ -98,34 +98,26 @@ json.dump(
                 ]
                 for s1 in UPP
             },
-            "read_A": [
-                {"read": " ", "to_state": "state_Aa", "write": "a", "action": "LEFT"},
-                {"read": "a", "to_state": "state_Aa", "write": "a", "action": "LEFT"},
-                {"read": "b", "to_state": "state_Ab", "write": "b", "action": "LEFT"},
-                {"read": "c", "to_state": "state_Ac", "write": "c", "action": "LEFT"},
-                {"read": "d", "to_state": "state_Ad", "write": "d", "action": "LEFT"},
-            ],
-            "read_B": [
-                {"read": " ", "to_state": "state_Ba", "write": "a", "action": "LEFT"},
-                {"read": "a", "to_state": "state_Ba", "write": "a", "action": "LEFT"},
-                {"read": "b", "to_state": "state_Bb", "write": "b", "action": "LEFT"},
-                {"read": "c", "to_state": "state_Bc", "write": "c", "action": "LEFT"},
-                {"read": "d", "to_state": "state_Bd", "write": "d", "action": "LEFT"},
-            ],
-            "read_C": [
-                {"read": " ", "to_state": "state_Ca", "write": "a", "action": "LEFT"},
-                {"read": "a", "to_state": "state_Ca", "write": "a", "action": "LEFT"},
-                {"read": "b", "to_state": "state_Cb", "write": "b", "action": "LEFT"},
-                {"read": "c", "to_state": "state_Cc", "write": "c", "action": "LEFT"},
-                {"read": "d", "to_state": "state_Cd", "write": "d", "action": "LEFT"},
-            ],
-            "read_D": [
-                {"read": " ", "to_state": "state_Da", "write": "a", "action": "LEFT"},
-                {"read": "a", "to_state": "state_Da", "write": "a", "action": "LEFT"},
-                {"read": "b", "to_state": "state_Db", "write": "b", "action": "LEFT"},
-                {"read": "c", "to_state": "state_Dc", "write": "c", "action": "LEFT"},
-                {"read": "d", "to_state": "state_Dd", "write": "d", "action": "LEFT"},
-            ],
+            **{
+                f"read_{s1}": [
+                    {
+                        "read": " ",
+                        "to_state": f"state_{s1}a",
+                        "write": "a",
+                        "action": "LEFT",
+                    },
+                    *[
+                        {
+                            "read": s2,
+                            "to_state": f"state_{s1}{s2}",
+                            "write": s2,
+                            "action": "LEFT",
+                        }
+                        for s2 in LOW
+                    ],
+                ]
+                for s1 in UPP
+            },
             "state_Aa": [
                 {"read": "A", "to_state": "state_Aa", "write": "A", "action": "LEFT"},
                 {"read": "B", "to_state": "state_Aa", "write": "B", "action": "LEFT"},
