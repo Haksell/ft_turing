@@ -1,8 +1,18 @@
+### basic
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/unary_mul.json '111*11='`
+
+### weird
+
+`cabal run -v0 exe:ft_turing -- tests/resources/ambiguous/buggy_and.json '1001&0101='`
+
 ### universal_turing_machine.json
 
-`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'`
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'`
 
-`cabal run -v0 exe:ft_turing -- tests/resources/valid/universal_turing_machine.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'`
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'`
+
+`cabal run -v0 exe:ft_turing -- tests/resources/valid/utm10.json 'A[;AbBd+;AcCe+;Aa.g-;AdHb+;AeHc+;BbBb+;BcBc+;BdDd-;BeDe-;BaDa-;CbCb+;CcCc+;CdEd-;CeEe-;CaEa-;DbFd-;DcGc+;DdHb+;DeHc+;EbGb+;EcFe-;EdHb+;EeHc+;FbFb-;FcFc-;FdAd+;FeAe+;FaAa+;GdGb+;GeGc+;GaIf-;HdHb+;HeHc+;HaIg-;IbIb-;IcIc-;IdIb-;IeIc-;Ia.a-]!cbbcbbc'`
 
 ### binary_and.json same size
 

@@ -2,8 +2,8 @@ import json
 import string
 
 DIRS = ["L", "R"]
-
-for n in [2, 4, 10]:
+UTM_SIZES = [2, 4, 10]
+for n in UTM_SIZES:
     LOW = list(string.ascii_lowercase[:n])
     UPP = list(string.ascii_uppercase[:n])
     PAIRS = [X + x for X in UPP for x in LOW]
@@ -34,10 +34,9 @@ for n in [2, 4, 10]:
                 *[f"move_right_{s}" for s in PAIRS],
                 "HALT",
                 "UNEXPECTED_TRANSITION",
-                "NEG_POS",
             ],
             "initial": "start",
-            "finals": ["HALT", "UNEXPECTED_TRANSITION", "NEG_POS"],
+            "finals": ["HALT", "UNEXPECTED_TRANSITION"],
             "transitions": {
                 "start": [
                     {"read": s, "to_state": f"state_{s}", "write": s, "action": "RIGHT"}
@@ -338,7 +337,7 @@ for n in [2, 4, 10]:
                         },
                         {
                             "read": "]",
-                            "to_state": "NEG_POS",
+                            "to_state": "HALT",
                             "write": "]",
                             "action": "RIGHT",
                         },
@@ -381,6 +380,6 @@ for n in [2, 4, 10]:
                 },
             },
         },
-        open(f"utm{n}.json", "w"),
+        open(f"tests/resources/valid/utm{n}.json", "w"),
         indent=4,
     )

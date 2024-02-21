@@ -207,11 +207,10 @@
         "move_right_Dc",
         "move_right_Dd",
         "HALT",
-        "UNEXPECTED_TRANSITION",
-        "NEG_POS"
+        "UNEXPECTED_TRANSITION"
     ],
     "initial": "start",
-    "finals": ["HALT", "UNEXPECTED_TRANSITION", "NEG_POS"],
+    "finals": ["HALT", "UNEXPECTED_TRANSITION"],
     "transitions": {
         "start": [
             {
@@ -7706,7 +7705,7 @@
             },
             {
                 "read": "]",
-                "to_state": "NEG_POS",
+                "to_state": "HALT",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7744,7 +7743,7 @@
             },
             {
                 "read": "]",
-                "to_state": "NEG_POS",
+                "to_state": "HALT",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7782,7 +7781,7 @@
             },
             {
                 "read": "]",
-                "to_state": "NEG_POS",
+                "to_state": "HALT",
                 "write": "]",
                 "action": "RIGHT"
             }
@@ -7820,7 +7819,7 @@
             },
             {
                 "read": "]",
-                "to_state": "NEG_POS",
+                "to_state": "HALT",
                 "write": "]",
                 "action": "RIGHT"
             }
