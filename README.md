@@ -461,13 +461,29 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '11&111=' -
 
 ### universal_turing_machine.json
 
--   `unary_inc.json`: `cabal run -v0 exe:ft_turing -- tests/resources/valid/utm2.json 'A[;AbAb+;Aa.b+]!bbb'`
+-   `unary_inc.json`
 
--   `unary_add.json`: `cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'`
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/utm2.json 'A[;AbAb+;Aa.b+]!bbb'
+```
 
--   `0to2n.json`: `cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'`
+-   `unary_add.json`
 
--   `palindrome.json`: `cabal run -v0 exe:ft_turing -- tests/resources/valid/utm10.json 'A[;AbBd+;AcCe+;Aa.g-;AdHb+;AeHc+;BbBb+;BcBc+;BdDd-;BeDe-;BaDa-;CbCb+;CcCc+;CdEd-;CeEe-;CaEa-;DbFd-;DcGc+;DdHb+;DeHc+;EbGb+;EcFe-;EdHb+;EeHc+;FbFb-;FcFc-;FdAd+;FeAe+;FaAa+;GdGb+;GeGc+;GaIf-;HdHb+;HeHc+;HaIg-;IbIb-;IcIc-;IdIb-;IeIc-;Ia.a-]!cbbcbbc'`
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'
+```
+
+-   `0to2n.json`
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'
+```
+
+-   `palindrome.json`
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/utm10.json 'A[;AbBd+;AcCe+;Aa.g-;AdHb+;AeHc+;BbBb+;BcBc+;BdDd-;BeDe-;BaDa-;CbCb+;CcCc+;CdEd-;CeEe-;CaEa-;DbFd-;DcGc+;DdHb+;DeHc+;EbGb+;EcFe-;EdHb+;EeHc+;FbFb-;FcFc-;FdAd+;FeAe+;FaAa+;GdGb+;GeGc+;GaIf-;HdHb+;HeHc+;HaIg-;IbIb-;IcIc-;IdIb-;IeIc-;Ia.a-]!cbbcbbc'
+```
 
 ### Protections
 
@@ -485,4 +501,8 @@ cabal run -v0 exe:ft_turing -- -q tests/resources/ambiguous/arrows.json 'rrrrrlr
 cabal run -v0 exe:ft_turing -- -q tests/resources/ambiguous/buggy_and.json '1001&0101='
 echo "=== MAX STEPS ==="
 cabal run -v0 exe:ft_turing -- -q tests/resources/valid/unary_sub.json '11-111=' --max-steps=1000
+```
+
+```
+
 ```
