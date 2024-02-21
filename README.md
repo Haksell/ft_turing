@@ -502,7 +502,3 @@ cabal run -v0 exe:ft_turing -- -q tests/resources/ambiguous/buggy_and.json '1001
 echo "=== MAX STEPS ==="
 cabal run -v0 exe:ft_turing -- -q tests/resources/valid/unary_sub.json '11-111=' --max-steps=1000
 ```
-
-```
-
-```
