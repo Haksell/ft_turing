@@ -16,7 +16,7 @@
 
 ### binary_and.json same size
 
-````shell
+```shell
 clear
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&000=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&001=' -q
@@ -134,7 +134,7 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&00=' -
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&01=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&10=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&11=' -q
-````
+```
 
 ### binary_and.json right bigger
 
