@@ -461,25 +461,25 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '11&111=' -
 
 ### universal_turing_machine.json
 
--   `unary_inc.json`
+##### unary_inc.json
 
 ```shell
 cabal run -v0 exe:ft_turing -- tests/resources/valid/utm2.json 'A[;AbAb+;Aa.b+]!bbb'
 ```
 
--   `unary_add.json`
+##### unary_add.json
 
 ```shell
 cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbAb+;AcBb+;BbBb+;BdCa-;Cb.a+]!bbbcbbd'
 ```
 
--   `0to2n.json`
+##### 0to2n.json
 
 ```shell
 cabal run -v0 exe:ft_turing -- tests/resources/valid/utm4.json 'A[;AbBb+;Aa.d+;BbAb+;Ba.c+]!bbbbb'
 ```
 
--   `palindrome.json`
+##### palindrome.json
 
 ```shell
 cabal run -v0 exe:ft_turing -- tests/resources/valid/utm10.json 'A[;AbBd+;AcCe+;Aa.g-;AdHb+;AeHc+;BbBb+;BcBc+;BdDd-;BeDe-;BaDa-;CbCb+;CcCc+;CdEd-;CeEe-;CaEa-;DbFd-;DcGc+;DdHb+;DeHc+;EbGb+;EcFe-;EdHb+;EeHc+;FbFb-;FcFc-;FdAd+;FeAe+;FaAa+;GdGb+;GeGc+;GaIf-;HdHb+;HeHc+;HaIg-;IbIb-;IcIc-;IdIb-;IeIc-;Ia.a-]!cbbcbbc'
