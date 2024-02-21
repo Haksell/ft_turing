@@ -16,6 +16,7 @@
 
 ### binary_and.json same size
 
+````shell
 clear
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&000=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&001=' -q
@@ -88,9 +89,11 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&100=' 
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&101=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&110=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&111=' -q
+```
 
 ### binary_and.json left bigger
 
+```shell
 clear
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&00=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '000&01=' -q
@@ -131,9 +134,11 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&00=' -
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&01=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&10=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '111&11=' -q
+````
 
 ### binary_and.json right bigger
 
+```shell
 clear
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '00&000=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '01&000=' -q
@@ -174,3 +179,4 @@ cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '00&111=' -
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '01&111=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '10&111=' -q
 cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json '11&111=' -q
+```
