@@ -18,19 +18,19 @@ randomChoice str
 
 generateInputByPattern :: String -> Int -> IO String
 generateInputByPattern pattern size = go pattern ""
- where
-  go [] acc = return acc
-  go ('[' : xs) acc = do
-    let (choiceStr, rest) = break (== ']') xs
-    if null rest
-      then error "Malformed pattern: missing closing ']'"
-      else do
-        let remaining = tail rest
-        chosen <- chooseRandom size choiceStr
-        go remaining (acc ++ chosen)
-  go (x : xs) acc
-    | x == ']' = go xs acc
-    | otherwise = go xs (acc ++ [x])
+  where
+    go [] acc = return acc
+    go ('[' : xs) acc = do
+      let (choiceStr, rest) = break (== ']') xs
+      if null rest
+        then error "Malformed pattern: missing closing ']'"
+        else do
+          let remaining = tail rest
+          chosen <- chooseRandom size choiceStr
+          go remaining (acc ++ chosen)
+    go (x : xs) acc
+      | x == ']' = go xs acc
+      | otherwise = go xs (acc ++ [x])
 
 executeMachine :: Machine -> String -> IO Integer
 executeMachine machine input = do

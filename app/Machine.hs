@@ -46,8 +46,8 @@ isValidInput machineAlphabet machineBlank input
   | machineBlank `elem` input = Just "Input contains the blank symbol"
   | not $ null unknownChars = Just $ "Input contains symbols not in the alphabet: " ++ intercalate ", " (map (: []) (sort $ nub unknownChars))
   | otherwise = Nothing
- where
-  unknownChars = filter (`notElem` machineAlphabet) input
+  where
+    unknownChars = filter (`notElem` machineAlphabet) input
 
 buildMachine :: B.ByteString -> Either String Machine
 buildMachine bs = case parseMachine bs of
