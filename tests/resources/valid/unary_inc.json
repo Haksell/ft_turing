@@ -1,0 +1,14 @@
+{
+    "name": "unary_inc",
+    "alphabet": [".", "1"],
+    "blank": ".",
+    "states": ["scanblank", "HALT"],
+    "initial": "scanblank",
+    "finals": ["HALT"],
+    "transitions": {
+        "scanblank": [
+            { "read": "1", "to_state": "scanblank", "write": "1", "action": "RIGHT" },
+            { "read": ".", "to_state": "HALT", "write": "1", "action": "RIGHT" }
+        ]
+    }
+}
