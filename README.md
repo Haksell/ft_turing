@@ -502,3 +502,41 @@ cabal run -v0 exe:ft_turing -- -q tests/resources/ambiguous/buggy_and.json '1001
 echo "=== MAX STEPS ==="
 cabal run -v0 exe:ft_turing -- -q tests/resources/valid/unary_sub.json '11-111=' --max-steps=1000
 ```
+
+### Complexity
+
+##### unary_add.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/unary_add.json --complexity '[1]+[1]='
+```
+
+##### palindrome.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/palindrome.json --complexity '[01]'
+```
+
+##### 0ton1ton.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/0ton1ton.json --complexity '[01]'
+```
+
+##### 0to2n.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/0to2n.json --complexity '[0]'
+```
+
+##### unary_mul.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/unary_mul.json --complexity '[1]*[1]='
+```
+
+##### binary_and.json
+
+```shell
+cabal run -v0 exe:ft_turing -- tests/resources/valid/binary_and.json --complexity '[01]&[01]='
+```

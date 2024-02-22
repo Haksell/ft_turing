@@ -101,7 +101,7 @@ main = do
         Left parsingError -> putStrLn parsingError
         Right machine ->
           case complexity of
-            Just pattern -> calculateComplexity pattern machine
+            Just pattern -> calculateComplexity pattern machine debug
             Nothing -> case input of
               Nothing -> putStrLn "Error: input is required."
               Just actualInput ->
